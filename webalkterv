@@ -1,0 +1,21 @@
+sudo docker run -d -p 27017:27017 -v /home/rendzso/WebstormProjects/webtech2-assignment/src/backend/data:/data/db mongo
+
+Web Alk. REACT
+
+Customer:
+	-customerID
+	-name
+	-phone
+	-place
+		-window: 
+				-height
+				-width
+				-shutter:
+						-type
+						-colour
+	-submitted
+
+-Create order, with basic informations.
+-Add window, with parameters.
+-Add shutter to window, with parameters.
+-Submit the whole order.
