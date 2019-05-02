@@ -6,4 +6,8 @@ router.get('/list', async (req, res) => {
     res.status(200).send(await srs.readAll())
 })
 
+router.get('/listUser', async (req, res) => {
+    res.status(200).send(await srs.readUser(req.query.customerID))
+})
+
 module.exports = router;

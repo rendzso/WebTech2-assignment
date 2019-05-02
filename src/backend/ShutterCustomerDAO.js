@@ -19,6 +19,11 @@ function read(data) {
     });
 }
 
+async function readUser(customerID){
+    return (await read({"customerID" : customerID}))
+}
+
 module.exports = {
-    "readAll" : read
+    "readAll" : read,
+    "readUser" : readUser
 }
