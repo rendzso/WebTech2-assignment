@@ -19,3 +19,9 @@ Customer:
 -Add window, with parameters.
 -Add shutter to window, with parameters.
 -Submit the whole order.
+
+AGGREGÁLÁS
+
+db.Customer.aggregate([{$match: {"windows.windowID":"eloszoba"}},{$match: {"windows.windowData.submitted":"submitted"}}])
+
+db.Customer.aggregate([{$match: {"windows.windowID":"eloszoba"}},{$match: {"windows.windowData.submitted":"submitted"}},{$project: {windows: {$filter: {input: "$windows", as: "window", cond: {$eq: ["$$windows.$.windowData.submitted", "submitted"]}}}}}])

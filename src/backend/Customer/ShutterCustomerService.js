@@ -15,21 +15,19 @@ async function insertCustomer(customer) {
 }
 
 async function insertWindow(data) {
-    const customer = {"customerID" : data.customerID}
-    const window = {$push: {"windows": data.window}}
-    srs.updateOne(collection, customer, window)
+    srs.insert("Orders", data)
 }
 
 async function insertShutter(data) {
-    const customerwindow = {"customerID" : data.customerID, "windows":{$elemMatch: {"windowID": data.windowID}}}
-    const shutter = {$set: {"windows.$.windowData.shutter": data.shutter}}
-    srs.updateOne(collection, customerwindow, shutter)
+    const customerwindow = {"customerID" : data.customerID, "windowID": data.windowID}
+    const shutter = {$set: {"shutter": data.shutter}}
+    srs.updateOne("Orders", customerwindow, shutter)
 }
 
 async function submitOrder(data) {
-    const customerwindow = {"customerID" : data.customerID, "windows":{$elemMatch: {"windowID": data.windowID}}}
-    const submit = {$set: {"windows.$.windowData.submitted": "submitted"}}
-    srs.updateOne(collection, customerwindow, submit)
+    const customerwindow = {"customerID" : data.customerID, "windowID": data.windowID, "shutter": {$exists: true}}
+    const submit = {$set: {"submitted": "submitted"}}
+    srs.updateOne("Orders", customerwindow, submit)
 }
 
 module.exports = {
