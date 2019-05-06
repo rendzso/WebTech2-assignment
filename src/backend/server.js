@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-const CustomerController = require('./ShutterCustomerController');
+const CustomerController = require('./Customer/ShutterCustomerController');
 
 app.use('/customer', CustomerController);
 
