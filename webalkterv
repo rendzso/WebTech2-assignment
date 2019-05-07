@@ -7,21 +7,38 @@ Customer:
 	-name
 	-phone
 	-place
-		-window: 
-				-height
-				-width
-				-shutter:
-						-type
-						-colour
-	-submitted
 
--Create order, with basic informations.
--Add window, with parameters.
--Add shutter to window, with parameters.
--Submit the whole order.
+Parts:
+		-type
+		-price
+		-parts: [
+					-part1
+					-part2
+					...
+				]
 
-AGGREGÁLÁS
+Order:
+	-customerId
+	-orderID
+	-items: 	[
+					-windowHeight
+					-windowWidth
+					-shutterType: default none
+					-shutterColor: default none
+					-shutterParts:[] push from Parts.parts, where shutterType = type
+					-shutterPrice: push from Parts
+					-worker: default empty
+					-shutterStatus: default empty
+				]
+	-status: default assemblyInProgress
+	-deliveryTime: default: none
+	-payed
 
-db.Customer.aggregate([{$match: {"windows.windowID":"eloszoba"}},{$match: {"windows.windowData.submitted":"submitted"}}])
+Receipt:
+	-customerID
+	-orderID
+	-itemsCounter
+	-priseSUM
+	-date
 
-db.Customer.aggregate([{$match: {"windows.windowID":"eloszoba"}},{$match: {"windows.windowData.submitted":"submitted"}},{$project: {windows: {$filter: {input: "$windows", as: "window", cond: {$eq: ["$$windows.$.windowData.submitted", "submitted"]}}}}}])
+

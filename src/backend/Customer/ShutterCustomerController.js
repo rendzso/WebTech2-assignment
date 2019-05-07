@@ -14,16 +14,16 @@ router.post('/addCustomer', async (req, res) => {
     res.status(200).send(await srs.addCustomer(req.body))
 })
 
-router.post('/addWindows', async (req, res) => {
-    res.status(200).send(await srs.addWindow(req.body))
-})
-
-router.post('/addShutter', async (req, res) => {
-    res.status(200).send(await srs.addShutter(req.body))
+router.post('/addOrder', async (req, res) => {
+    res.status(200).send(await srs.addOrder(req.body))
 })
 
 router.post('/submitOrder', async (req, res) => {
     res.status(200).send(await srs.submitOrder(req.body))
+})
+
+router.post('/pay', async (req, res) => {
+    res.status(200).send(await srs.pay(req.body))
 })
 
 module.exports = router;

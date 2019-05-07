@@ -19,6 +19,19 @@ function read(collection, data) {
     });
 }
 
+function counter(collection, data) {
+    return new Promise(async resolve => {
+        const client = new MongoClient(url);
+        await client.connect((err) => {
+            assert.equal(err, null);
+            console.log('connected to db');
+            var db = client.db(dbName);
+            resolve(db.collection(collection).find(data).count());
+            client.close();
+        });
+    });
+}
+
 async function readWithData(collection, data){
     return (await read(collection, data))
 }
@@ -36,7 +49,7 @@ async function insert(collection, data){
 
 async function updateOne(collection, where, what){
     const client = new MongoClient(url);
-    await client.connect((err, r) => {
+    await client.connect((err) => {
         assert.equal(err, null);
         console.log('connected to db');
         var db = client.db(dbName);
@@ -49,5 +62,6 @@ module.exports = {
     "readAll" : read,
     "readWithData" : readWithData,
     "insert" : insert,
-    "updateOne" : updateOne
+    "updateOne" : updateOne,
+    "counter" : counter
 }
