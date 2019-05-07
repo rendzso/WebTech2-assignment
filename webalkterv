@@ -21,6 +21,7 @@ Order:
 	-customerId
 	-orderID
 	-items: 	[
+					-itemID
 					-windowHeight
 					-windowWidth
 					-shutterType: default none
