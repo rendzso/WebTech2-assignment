@@ -103,6 +103,7 @@ function pay(data) {
     const where = {"customerID": data.customerID, "orderID": data.orderID}
     const pay = {$set: {"payed": "payed"}}
     srs.updateOne("Orders", where, pay)
+    srs.updateOne("Receipts", where, pay)
 }
 
 module.exports = {
