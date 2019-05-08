@@ -7,7 +7,7 @@ router.get('/list', async (req, res) => {
 })
 
 router.get('/listCustomer', async (req, res) => {
-    res.status(200).send(await srs.readCustomer(req.query.customerID))
+    res.status(200).send(await srs.readCustomerOrders(req.query.customerID))
 })
 
 router.post('/addCustomer', async (req, res) => {
