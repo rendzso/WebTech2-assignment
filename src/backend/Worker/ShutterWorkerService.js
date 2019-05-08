@@ -38,7 +38,7 @@ async function checkEverything(customerID, orderID) {
     console.log("ready: " + ready)
     if(all === ready){
         console.log("The whole order is ready.")
-        srs.updateOne(collection, {"customerID": customerID, "orderID": orderID}, {$set: {"status": "creatingReceipt"}})
+        srs.updateOne(collection, {"customerID": customerID, "orderID": orderID}, {$set: {"status": "organize"}})
     }
 }
 
