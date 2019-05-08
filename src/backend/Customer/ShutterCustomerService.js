@@ -39,8 +39,15 @@ async function readCustomer(customerID) {
     return (await srs.readWithData(collection, data))
 }
 
-function insertCustomer(customer) {
-    srs.insert(collection, customer)
+async function insertCustomer(customer) {
+
+    if (await srs.counter(collection, {"customerID": customer.customerID}) === 0) {
+        srs.insert(collection, customer)
+        return 'Customer is added'
+    } else {
+        throw 'The username is used, please select another!'
+    }
+
 }
 
 async function insertOrderElement(data) {
@@ -64,46 +71,65 @@ async function insertOrderElement(data) {
 }
 
 async function insertOrder(data) {
-    if (await srs.counter("Orders", {"customerID": data.customerID, "submitted": "no"}) === 0) {
-        const secondary = await srs.readWithData("Parts", {"type": data.shutterType})
-        const ID = await generate(data.customerID)
-        const itemID = await generateItem(data.customerID)
-        srs.insert("Orders", {
-                "customerID": data.customerID,
-                "orderID": ID,
-                "items": [{
-                    "itemID": itemID,
-                    "windowHeight": data.windowHeight,
-                    "windowWidth": data.windowWidth,
-                    "shutterType": data.shutterType,
-                    "shutterColor": data.shutterColor,
-                    "shutterParts": secondary[0]["parts"],
-                    "shutterPrice": secondary[0]["price"],
-                    "worker": "none",
-                    "shutterStatus": "waiting"
-                }],
-                "submitted": "no",
-                "status": "inProgress",
-                "deliveryTime": "notDefined",
-                "payed": "no"
-            }
-        )
+    if (await srs.counter(collection, {"customerID": data.customerID}) === 1) {
+        if (await srs.counter("Orders", {"customerID": data.customerID, "submitted": "no"}) === 0) {
+            const secondary = await srs.readWithData("Parts", {"type": data.shutterType})
+            const ID = await generate(data.customerID)
+            const itemID = await generateItem(data.customerID)
+            srs.insert("Orders", {
+                    "customerID": data.customerID,
+                    "orderID": ID,
+                    "items": [{
+                        "itemID": itemID,
+                        "windowHeight": data.windowHeight,
+                        "windowWidth": data.windowWidth,
+                        "shutterType": data.shutterType,
+                        "shutterColor": data.shutterColor,
+                        "shutterParts": secondary[0]["parts"],
+                        "shutterPrice": secondary[0]["price"],
+                        "worker": "none",
+                        "shutterStatus": "waiting"
+                    }],
+                    "submitted": "no",
+                    "status": "inProgress",
+                    "deliveryTime": "notDefined",
+                    "payed": "no"
+                }
+            )
+            return 'New order created, and items added!'
+        } else {
+            insertOrderElement(data);
+            return 'Item added to the order!'
+        }
     } else {
-        insertOrderElement(data);
+        throw 'This user is not exists, cant order!'
     }
 }
 
-function submitOrder(data) {
-    const where = {"customerID": data.customerID, "orderID": data.orderID}
-    const submit = {$set: {"submitted": "submitted"}}
-    srs.updateOne("Orders", where, submit)
+async function submitOrder(data) {
+    if(await srs.counter("Orders", {"customerID": data.customerID, "orderID": data.orderID, "submitted": "no"}) === 1){
+        const where = {"customerID": data.customerID, "orderID": data.orderID}
+        const submit = {$set: {"submitted": "submitted"}}
+        srs.updateOne("Orders", where, submit)
+        return 'Order is submitted!'
+    }
+    else {
+        throw 'This order is already submitted!'
+    }
+
 }
 
-function pay(data) {
-    const where = {"customerID": data.customerID, "orderID": data.orderID}
+async function pay(data) {
+    const where = {"customerID": data.customerID, "orderID": data.orderID, "status": "readyToPay"}
     const pay = {$set: {"payed": "payed"}}
-    srs.updateOne("Orders", where, pay)
-    srs.updateOne("Receipts", where, pay)
+    if(await srs.counter("Orders", {"customerID": data.customerID, "orderID": data.orderID, "status": "readyToPay"})===1){
+        srs.updateOne("Orders", where, pay)
+        srs.updateOne("Receipts", where, pay)
+        return 'The order is payed!'
+    }
+    else {
+        throw 'This order is not ready to pay!'
+    }
 }
 
 module.exports = {
@@ -112,5 +138,5 @@ module.exports = {
     "addCustomer": insertCustomer,
     "addOrder": insertOrder,
     "submitOrder": submitOrder,
-    "pay" : pay
+    "pay": pay
 }

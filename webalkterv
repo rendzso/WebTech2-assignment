@@ -42,4 +42,86 @@ Receipt:
 	-priseSUM
 	-date
 
+MINTA:
+
+Customer:
+
+{
+	"_id" : ObjectId("5cd01f5f029f760baf25691b"),
+	"customerID" : "pista",
+	"name" : "Debreceni József",
+	"phone" : "06-70-111-2222",
+	"place" : "2000 Debrecen, Fő út 10."
+}
+
+Order:
+
+"_id" : ObjectId("5cd1f15ab89ef965b17cef75"),
+	"customerID" : "pista",
+	"orderID" : "order2",
+	"items" : [
+		{
+			"itemID" : "item1",
+			"windowHeight" : 200,
+			"windowWidth" : 120,
+			"shutterType" : "simple",
+			"shutterColor" : "silver",
+			"shutterParts" : [
+				"bracket",
+				"handOperatedChain",
+				"boxPlate",
+				"rollingShaft",
+				"bearing",
+				"leftDoorRail",
+				"rightDoorRail",
+				"seatPlate"
+			],
+			"shutterPrice" : 100,
+			"worker" : "worker",
+			"shutterStatus" : "success"
+		}
+	],
+	"submitted" : "no",
+	"status" : "readyToPay",
+	"deliveryTime" : "notDefined",
+	"payed" : "no"
+}
+
+Receipts:
+
+{
+	"_id" : ObjectId("5cd2c3c9c41f7f261d02c553"),
+	"customerID" : "geza",
+	"name" : "Debreceni József",
+	"phone" : "06-70-111-2222",
+	"address" : "2000 Debrecen, Fő út 10.",
+	"orderID" : "order1",
+	"total" : 200,
+	"dateline" : "2019.05.30.",
+	"payed" : "no",
+	"order" : {
+		"customerID" : "geza",
+		"orderID" : "order1",
+		"items" : [
+			{
+				"itemID" : "item1",
+				"windowHeight" : 200,
+				"windowWidth" : 120,
+				"shutterType" : "simple",
+				"shutterColor" : "silver",
+				"shutterPrice" : 100
+			},
+			{
+				"itemID" : "item2",
+				"windowHeight" : 200,
+				"windowWidth" : 120,
+				"shutterType" : "simple",
+				"shutterColor" : "silver",
+				"shutterPrice" : 100
+			}
+		],
+		"deliveryTime" : "2019.05.20."
+	}
+}
+
 

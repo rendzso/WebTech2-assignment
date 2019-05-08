@@ -11,19 +11,35 @@ router.get('/listCustomer', async (req, res) => {
 })
 
 router.post('/addCustomer', async (req, res) => {
-    res.status(200).send(await srs.addCustomer(req.body))
+    try {
+        res.status(200).send(await srs.addCustomer(req.body))
+    } catch (err) {
+        res.status(500).send(err)
+    }
 })
 
 router.post('/addOrder', async (req, res) => {
-    res.status(200).send(await srs.addOrder(req.body))
-})
+    try {
+        res.status(200).send(await srs.addOrder(req.body))
+    } catch (err) {
+        res.status(500).send(err)
+    }
+    })
 
 router.post('/submitOrder', async (req, res) => {
-    res.status(200).send(await srs.submitOrder(req.body))
+    try {
+        res.status(200).send(await srs.submitOrder(req.body))
+    } catch (err) {
+        res.status(500).send(err)
+    }
 })
 
 router.post('/pay', async (req, res) => {
-    res.status(200).send(await srs.pay(req.body))
+    try {
+        res.status(200).send(await srs.pay(req.body))
+    } catch (err) {
+        res.status(500).send(err)
+    }
 })
 
 module.exports = router;
