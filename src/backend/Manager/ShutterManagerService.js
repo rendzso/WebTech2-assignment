@@ -21,11 +21,13 @@ function organizeInstallation(data) {
 }
 
 async function createReceipt(data) {
-    const order = await srs.readWithData(collection, {
+    let order = await srs.readWithData(collection, {
         "customerID": data.customerID,
         "orderID": data.orderID,
         "status": "creatingReceipt"
     })
+
+    console.log(order)
 
     if (order.length !== 0) {
         let all = 0
@@ -33,30 +35,33 @@ async function createReceipt(data) {
             all += entity["shutterPrice"]
         }
 
-        let itemList = await srs.readWithData(collection, {
-                "customerID": data.customerID,
-                "orderID": data.orderID
+        const customer = await srs.readWithData("Customer", {
+                "customerID": data.customerID
             }
         )
 
-        const j = itemList[0].items.length
-        delete itemList[0]._id;
+        const j = order[0].items.length
+        delete order[0]._id;
         for (let i = 0; i < j; i++) {
-            delete itemList[0].items[i].shutterParts;
-            delete itemList[0].items[i].worker;
-            delete itemList[0].items[i].shutterStatus;
+            delete order[0].items[i].shutterParts;
+            delete order[0].items[i].worker;
+            delete order[0].items[i].shutterStatus;
         }
-        delete itemList[0].submitted;
-        delete itemList[0].status;
-        delete itemList[0].payed;
+        delete order[0].submitted;
+        delete order[0].status;
+        delete order[0].payed;
+
 
         srs.insert("Receipts", {
             "customerID": data.customerID,
+            "name" : customer[0].name,
+            "phone":customer[0].phone,
+            "address":customer[0].place,
             "orderID": data.orderID,
             "total": all,
             "dateline": "2019.05.30.",
             "payed": "no",
-            "itemList": itemList[0]
+            "order": order[0]
         })
 
         srs.updateOne(collection, {
