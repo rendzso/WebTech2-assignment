@@ -14,12 +14,20 @@ router.get('/listToOrganize', async (req, res) => {
     res.status(200).send(await srs.listReadyToOrganize())
 })
 
-router.post('/organize', (req, res) => {
-    res.status(200).send(srs.setDeliveryTime(req.body))
+router.post('/organize', async (req, res) => {
+    try {
+        res.status(200).send(await srs.setDeliveryTime(req.body))
+    } catch (err) {
+        res.status(500).send(err)
+    }
 })
 
-router.post('/createReceipt', (req, res) => {
-    res.status(200).send(srs.createReceipt(req.body))
+router.post('/createReceipt', async (req, res) => {
+    try {
+        res.status(200).send(await srs.createReceipt(req.body))
+    } catch (err) {
+        res.status(500).send(err)
+    }
 })
 
 module.exports = router;

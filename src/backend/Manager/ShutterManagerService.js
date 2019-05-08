@@ -13,11 +13,19 @@ async function readReadyToOrganize() {
     return (await srs.readWithData(collection, {"status": "organize"}))
 }
 
-function organizeInstallation(data) {
-    srs.updateOne(collection, {
-        "customerID": data.customerID,
-        "orderID": data.orderID
-    }, {$set: {"deliveryTime": data.date, "status": "creatingReceipt"}})
+async function organizeInstallation(data) {
+
+    if (await srs.counter(collection, {"customerID": data.customerID, "orderID": data.orderID, "status" : "organize"}) === 1) {
+        srs.updateOne(collection, {
+            "customerID": data.customerID,
+            "orderID": data.orderID
+        }, {$set: {"deliveryTime": data.date, "status": "creatingReceipt"}})
+        return 'Delivery time is added!'
+    } else {
+        throw 'The order is not ready to organize!!'
+    }
+
+
 }
 
 async function createReceipt(data) {
@@ -26,8 +34,6 @@ async function createReceipt(data) {
         "orderID": data.orderID,
         "status": "creatingReceipt"
     })
-
-    console.log(order)
 
     if (order.length !== 0) {
         let all = 0
@@ -51,7 +57,6 @@ async function createReceipt(data) {
         delete order[0].status;
         delete order[0].payed;
 
-
         srs.insert("Receipts", {
             "customerID": data.customerID,
             "name" : customer[0].name,
@@ -68,6 +73,10 @@ async function createReceipt(data) {
             "customerID": data.customerID,
             "orderID": data.orderID
         }, {$set: {"status": "readyToPay"}})
+
+        return 'Receipt created, and order statuc changed to: ready to pay!'
+    } else {
+        return 'The order is not ready! Cannot create receipt! Wait for workers to success!'
     }
 }
 
