@@ -1,5 +1,6 @@
 import React from 'react';
 import ReceiptStore from "../stores/ReceiptStore";
+import CustomerActions from "../actions/CustomerActions";
 
 class CustomerListMyReceipts extends React.Component{
 
@@ -60,7 +61,7 @@ class CustomerListMyReceipts extends React.Component{
                                                 })}
                                             </li>
                                         </ul>
-                                        <button className="btn btn-dark pt-2" disabled={receipt.payed === "payed"} >Pay this order</button>
+                                        <button className="btn btn-dark pt-2" disabled={receipt.payed === "payed"} onClick={()=>{CustomerActions.PayReceipt({"customerID": receipt.customerID, "orderID": receipt.orderID})}}>Pay this order</button>
                                     </li>)
                             })
                         }

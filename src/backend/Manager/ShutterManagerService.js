@@ -65,7 +65,7 @@ async function createReceipt(data) {
             "orderID": data.orderID,
             "total": all,
             "dateline": "2019.05.30.",
-            "payed": "no",
+            "payed": "readyToPay",
             "order": order[0]
         })
 

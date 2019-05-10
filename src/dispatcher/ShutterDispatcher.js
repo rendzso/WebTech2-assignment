@@ -201,4 +201,24 @@ dispatcher.register((data) => {
     ReceiptStore.emitChange();
 });
 
+dispatcher.register((data)=>{
+    if(data.payload.actionType !== "payReceipt"){
+        return;
+    }
+
+    fetch('/customer/pay',{
+        method : 'POST',
+        headers : {
+            "Content-Type" : 'application/json'
+        },
+        body : JSON.stringify(data.payload.payload)
+    })
+        .then((response) => {return response.text()})
+        .then((result)=>{
+            CustomerActions.listMyReceipts(data.payload.payload.customerID)
+            alert(result)
+            ReceiptStore.emitChange()
+        })
+});
+
 export default dispatcher;

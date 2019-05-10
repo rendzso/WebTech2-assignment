@@ -65,6 +65,13 @@ class CustomerActions {
         });
     }
 
+    PayReceipt(details){
+        ShutterDispatcher.handleViewAction({
+            actionType: "payReceipt",
+            payload : details
+        });
+    }
+
 }
 
 export default new CustomerActions();

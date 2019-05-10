@@ -128,8 +128,8 @@ async function pay(data) {
     const where = {"customerID": data.customerID, "orderID": data.orderID, "status": "readyToPay"}
     const pay = {$set: {"payed": "payed"}}
     if(await srs.counter("Orders", {"customerID": data.customerID, "orderID": data.orderID, "status": "readyToPay"})===1){
+        srs.updateOne("Receipts", {"customerID": data.customerID, "orderID": data.orderID}, {$set: {"payed": "payed"}})
         srs.updateOne("Orders", where, {$set: {"payed": "payed", "status": "done"}})
-        srs.updateOne("Receipts", where, pay)
         return 'The order is payed!'
     }
     else {
