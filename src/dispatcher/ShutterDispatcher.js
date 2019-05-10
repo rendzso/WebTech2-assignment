@@ -12,6 +12,9 @@ import CustomerListMyOrders from "../components/CustomerListMyOrders"
 import CustomerActions from "../actions/CustomerActions";
 import CustomerListMyReceipts from "../components/CustomerListMyReceipts";
 import ReceiptStore from "../stores/ReceiptStore";
+import WorkerNavigation from "../components/WorkerNavigation"
+import WorkerListOfWorks from "../components/WorkerListOfWorks";
+import WorkStore from "../stores/WorkStore"
 
 class ShutterDispatcher extends Dispatcher {
 
@@ -219,6 +222,47 @@ dispatcher.register((data)=>{
             alert(result)
             ReceiptStore.emitChange()
         })
+});
+
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ShowWorkerNavigation") {
+        return;
+    }
+
+    ReactDom.render(
+        React.createElement(WorkerNavigation),
+        document.getElementById('leftcontent')
+    );
+
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ShowWorkerAvailableWorks") {
+        return;
+    }
+
+    fetch('/worker/list', {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }).then(response => {
+        console.log(response)
+        return response.json()
+    })
+        .then(result => {
+            WorkStore._work = result;
+            WorkStore.emitChange();
+        })
+        .then(()=>{ReactDom.render(
+            React.createElement(WorkerListOfWorks),
+            document.getElementById("rightcontent")
+        )
+            WorkStore.emitChange();});
+
+
+    WorkStore.emitChange();
 });
 
 export default dispatcher;

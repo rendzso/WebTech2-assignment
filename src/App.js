@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import CustomerActions from "./actions/CustomerActions"
+import WorkerActions from "./actions/WorkerActions";
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
                       <a className="nav-link" onClick={()=>{CustomerActions.showNavigation()}}>Customer</a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" href="#">Worker</a>
+                      <a className="nav-link" onClick={()=>{WorkerActions.showNavigation()}}>Worker</a>
                   </li>
                   <li className="nav-item">
                       <a className="nav-link" href="#">Manager</a>
