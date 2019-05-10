@@ -8,7 +8,7 @@ class CustomerListMyOrders extends React.Component{
         super(props);
         //CustomerActions.listMyOrders();
         this._onChange = this._onChange.bind(this);
-        this.state = { orders : [], total: 0, customer: ""};
+        this.state = { orders : [], total: 0};
     }
 
     _onChange(){
@@ -38,7 +38,6 @@ class CustomerListMyOrders extends React.Component{
                         {
                             this.state.orders.map((order) => {
                                 this.state.total = 0;
-                                this.state.customerID = order.customerID;
                                 return (
                                     <li key={order.orderID}
                                         className="list-group-item"
@@ -63,7 +62,7 @@ class CustomerListMyOrders extends React.Component{
                                         })
                                         }
                                         Total price: {this.state.total} $<br/>
-                                        <button className="btn btn-dark" disabled={order.submitted === "submitted"} onClick={()=>{CustomerActions.submitOrder({"customerID": this.state.customerID, "orderID": order.orderID})}}>Submit the order</button>
+                                        <button className="btn btn-dark pt-2" disabled={order.submitted === "submitted"} onClick={()=>{CustomerActions.submitOrder({"customerID": order.customerID, "orderID": order.orderID})}}>Submit the order</button>
                                     </li>)
                             })
                         }

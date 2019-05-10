@@ -39,6 +39,11 @@ async function readCustomerOrders(customerID) {
     return (await srs.readWithData("Orders", data))
 }
 
+async function readCustomerReceipts(customerID) {
+    const data = {"customerID": customerID}
+    return (await srs.readWithData("Receipts", data))
+}
+
 async function insertCustomer(customer) {
 
     if (await srs.counter(collection, {"customerID": customer.customerID}) === 0) {
@@ -138,5 +143,6 @@ module.exports = {
     "addCustomer": insertCustomer,
     "addOrder": insertOrder,
     "submitOrder": submitOrder,
-    "pay": pay
+    "pay": pay,
+    "readCustomerReceipts": readCustomerReceipts
 }

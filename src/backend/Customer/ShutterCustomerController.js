@@ -10,6 +10,10 @@ router.get('/listCustomer', async (req, res) => {
     res.status(200).send(await srs.readCustomerOrders(req.query.customerID))
 })
 
+router.get('/listReceipts', async (req, res) => {
+    res.status(200).send(await srs.readCustomerReceipts(req.query.customerID))
+})
+
 router.post('/addCustomer', async (req, res) => {
     try {
         res.status(200).send(await srs.addCustomer(req.body))

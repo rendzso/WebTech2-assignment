@@ -10,6 +10,8 @@ import OrderRegisterForm from "../components/CustomerOrderForm";
 import OrderStore from "../stores/OrderStore"
 import CustomerListMyOrders from "../components/CustomerListMyOrders"
 import CustomerActions from "../actions/CustomerActions";
+import CustomerListMyReceipts from "../components/CustomerListMyReceipts";
+import ReceiptStore from "../stores/ReceiptStore";
 
 class ShutterDispatcher extends Dispatcher {
 
@@ -169,6 +171,34 @@ dispatcher.register((data)=>{
             alert(result)
             OrderStore.emitChange()
         })
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ListMyReceipts") {
+        return;
+    }
+
+    fetch('/customer/listReceipts?customerID='+data.payload.payload, {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }).then(response => {
+        console.log(response)
+        return response.json()
+    })
+        .then(result => {
+            ReceiptStore._receipt = result;
+            ReceiptStore.emitChange();
+        })
+        .then(()=>{ReactDom.render(
+            React.createElement(CustomerListMyReceipts),
+            document.getElementById("bigcontent")
+        )
+            ReceiptStore.emitChange();});
+
+
+    ReceiptStore.emitChange();
 });
 
 export default dispatcher;

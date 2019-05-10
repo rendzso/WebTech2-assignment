@@ -58,6 +58,13 @@ class CustomerActions {
         });
     }
 
+    listMyReceipts(customerID){
+        ShutterDispatcher.handleViewAction({
+            actionType: "ListMyReceipts",
+            payload : customerID
+        });
+    }
+
 }
 
 export default new CustomerActions();
