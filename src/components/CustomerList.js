@@ -1,8 +1,8 @@
 import React from 'react';
 import CustomerActions from "../actions/CustomerActions";
-import CustomerStore from "../store/CustomerStore";
+import CustomerStore from "../stores/CustomerStore";
 
-class StoreList extends React.Component{
+class CustomerList extends React.Component{
 
     constructor(props) {
         super(props);
@@ -31,7 +31,7 @@ class StoreList extends React.Component{
         return(
 
             <div className="card">
-                <div className="card-header">Stores</div>
+                <div className="card-header">Customers</div>
                 <div className="card-body">
                     <ul className="list-group">
                         {
@@ -40,8 +40,10 @@ class StoreList extends React.Component{
                                     <li key={customer.customerID}
                                         className="list-group-item"
                                         >
-                                        {customer.name},<br/>
-                                        {customer.phone}, {customer.place}
+                                        CustomerID: {customer.customerID}<br/>
+                                        Name: {customer.name}<br/>
+                                        Living place: {customer.place}<br/>
+                                        Phone number: {customer.phone}
                                     </li>)
                             })
                         }
@@ -53,4 +55,4 @@ class StoreList extends React.Component{
     }
 }
 
-export default StoreList
+export default CustomerList

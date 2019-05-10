@@ -1,7 +1,7 @@
 import EventEmitter from 'events'
 
-class CustomerStore extends EventEmitter{
-    _customer = []
+class OrderStore extends EventEmitter{
+    _order = []
 
     emitChange(){
         this.emit('change')
@@ -16,4 +16,4 @@ class CustomerStore extends EventEmitter{
     }
 }
 
-export default new CustomerStore();
+export default new OrderStore();
