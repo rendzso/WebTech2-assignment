@@ -44,6 +44,20 @@ class CustomerActions {
         });
     }
 
+    listMyOrders(customerID){
+        ShutterDispatcher.handleViewAction({
+            actionType: "ListMyOrders",
+            payload : customerID
+        });
+    }
+
+    submitOrder(details){
+        ShutterDispatcher.handleViewAction({
+            actionType: "submitOrder",
+            payload : details
+        });
+    }
+
 }
 
 export default new CustomerActions();

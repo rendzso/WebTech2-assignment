@@ -7,6 +7,9 @@ import CustomerList from "../components/CustomerList";
 import CustomerNavigation from "../components/CustomerNavigation";
 import CustomerRegisterForm from "../components/CustomerRegisterForm";
 import OrderRegisterForm from "../components/CustomerOrderForm";
+import OrderStore from "../stores/OrderStore"
+import CustomerListMyOrders from "../components/CustomerListMyOrders"
+import CustomerActions from "../actions/CustomerActions";
 
 class ShutterDispatcher extends Dispatcher {
 
@@ -117,6 +120,54 @@ dispatcher.register((data)=>{
         .then((response) => {return response.text()})
         .then((result)=>{
             alert(result)
+        })
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ListMyOrders") {
+        return;
+    }
+
+    fetch('/customer/listCustomer?customerID='+data.payload.payload, {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }).then(response => {
+        console.log(response)
+        return response.json()
+    })
+        .then(result => {
+            OrderStore._order = result;
+            OrderStore.emitChange();
+        })
+        .then(()=>{ReactDom.render(
+            React.createElement(CustomerListMyOrders),
+            document.getElementById("bigcontent")
+        )
+            OrderStore.emitChange();});
+
+
+    OrderStore.emitChange();
+});
+
+dispatcher.register((data)=>{
+    if(data.payload.actionType !== "submitOrder"){
+        return;
+    }
+
+    fetch('/customer/submitOrder',{
+        method : 'POST',
+        headers : {
+            "Content-Type" : 'application/json'
+        },
+        body : JSON.stringify(data.payload.payload)
+    })
+        .then((response) => {return response.text()})
+        .then((result)=>{
+            CustomerActions.listMyOrders(data.payload.payload.customerID)
+            alert(result)
+            OrderStore.emitChange()
         })
 });
 

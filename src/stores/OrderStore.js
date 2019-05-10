@@ -1,6 +1,7 @@
 import EventEmitter from 'events'
 
 class OrderStore extends EventEmitter{
+
     _order = []
 
     emitChange(){

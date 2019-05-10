@@ -1,6 +1,7 @@
 import EventEmitter from 'events'
 
 class CustomerStore extends EventEmitter{
+
     _customer = []
 
     emitChange(){

@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.scss';
 import CustomerActions from "./actions/CustomerActions"
-import CustomerNavigation from "./components/CustomerNavigation";
 
 function App() {
 
@@ -9,8 +8,8 @@ function App() {
       <>
           <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
               <ul className="navbar-nav">
-                  <li className="nav-item">
-                      <a className="nav-link" href="#">Register Customer</a>
+                  <li className="nav-item pr-4">
+                      <a className="nav-link disabled" id="nametag">Shutter builder organization</a>
                   </li>
                   <li className="nav-item">
                       <a className="nav-link" onClick={()=>{CustomerActions.showNavigation()}}>Customer</a>
@@ -29,6 +28,14 @@ function App() {
                   <div className="col-md-4" id="leftcontent">
                   </div>
                   <div className="col-md-6" id="rightcontent">
+                  </div>
+                  <div className="col-md-1"></div>
+              </div>
+          </div>
+          <div className="container-fluid pt-2">
+              <div className="row">
+                  <div className="col-md-1"></div>
+                  <div className="col-md-10" id="bigcontent">
                   </div>
                   <div className="col-md-1"></div>
               </div>
