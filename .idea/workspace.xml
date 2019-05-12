@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a3ea7bc-f68f-4dd9-87fe-65c35757f4d5" name="Default Changelist" comment="Statistic added, hotfix" />
+    <list default="true" id="3a3ea7bc-f68f-4dd9-87fe-65c35757f4d5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -14,69 +19,50 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actions/ManagerActions.js">
+        <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="46" />
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="11" selection-end-column="3" />
+              <folding>
+                <element signature="n#!!block;n#generate#0" />
+                <element signature="n#!!block;n#generateItem#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ManagerListOrders.js">
+        <entry file="file://$PROJECT_DIR$/combined.log">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="29" column="45" lean-forward="true" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+            <state relative-caret-position="542">
+              <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="n#!!block;n#readReadyToReceipt#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js">
+        <entry file="file://$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="544" column="52" selection-start-line="544" selection-start-column="52" selection-end-line="544" selection-end-column="52" />
+            <state relative-caret-position="557">
+              <caret line="83" column="80" selection-start-line="83" selection-start-column="80" selection-end-line="83" selection-end-column="80" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="n#!!block;n#checkEverything#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ManagerStatistic.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#111#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ManagerNavigation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="51" lean-forward="true" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Clear.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/error.log">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -98,9 +84,7 @@
         <option value="$PROJECT_DIR$/src/backend/ShutterCustomerService.js" />
         <option value="$PROJECT_DIR$/src/backend/ShutterCustomerController.js" />
         <option value="$PROJECT_DIR$/src/backend/ShutterCustomerDAO.js" />
-        <option value="$PROJECT_DIR$/src/backend/ShutterDAO.js" />
         <option value="$PROJECT_DIR$/src/backend/server.js" />
-        <option value="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js" />
         <option value="$PROJECT_DIR$/src/components/Navigation.js" />
         <option value="$PROJECT_DIR$/src/components/CustomerList.js" />
         <option value="$PROJECT_DIR$/src/stores/CustomerStore.js" />
@@ -109,7 +93,6 @@
         <option value="$PROJECT_DIR$/src/actions/CustomerActions.js" />
         <option value="$PROJECT_DIR$/src/components/Clear.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" />
         <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js" />
         <option value="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerController.js" />
         <option value="$PROJECT_DIR$/src/stores/WorkStore.js" />
@@ -129,9 +112,13 @@
         <option value="$PROJECT_DIR$/src/stores/StatisticStore.js" />
         <option value="$PROJECT_DIR$/src/components/WorkerListOfWorks.js" />
         <option value="$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js" />
-        <option value="$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js" />
         <option value="$PROJECT_DIR$/src/components/ManagerStatistic.js" />
         <option value="$PROJECT_DIR$/src/components/ManagerNavigation.js" />
+        <option value="$PROJECT_DIR$/database/shutter.sh" />
+        <option value="$PROJECT_DIR$/src/backend/ShutterDAO.js" />
+        <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" />
+        <option value="$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js" />
+        <option value="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js" />
       </list>
     </option>
   </component>
@@ -161,6 +148,38 @@
               <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="Manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="Worker" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -169,7 +188,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebTechnologies2/sakila-example" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -187,6 +206,9 @@
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/backend/Customer" />
     </key>
@@ -259,7 +281,7 @@
       <workItem from="1557486870548" duration="17837000" />
       <workItem from="1557517605912" duration="6430000" />
       <workItem from="1557605636525" duration="22570000" />
-      <workItem from="1557684807969" duration="12235000" />
+      <workItem from="1557684807969" duration="16147000" />
     </task>
     <task id="LOCAL-00001" summary="Basics, and basic list function added.">
       <created>1556814854441</created>
@@ -457,11 +479,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557695143934</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="database added">
+      <created>1557700319712</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1557700319712</updated>
+    </task>
+    <task id="LOCAL-00030" summary="database script added">
+      <created>1557701205824</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1557701205824</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172962000" />
+    <option name="totallyTimeSpent" value="176874000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="-2" width="1920" height="1082" extended-state="6" />
@@ -472,7 +508,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32843652" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.20146905" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -480,7 +516,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.12486883" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.12486883" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -511,9 +547,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sh" />
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="basic list by user function added." />
-    <MESSAGE value="Basic customer segment is working." />
     <MESSAGE value="Bad structure changed, and added some worker function" />
     <MESSAGE value="almost everything changed" />
     <MESSAGE value="worker functions added" />
@@ -537,7 +574,9 @@
     <MESSAGE value="Added functions, what necessary to create statistic" />
     <MESSAGE value="Statistic added" />
     <MESSAGE value="Statistic added, hotfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Statistic added, hotfix" />
+    <MESSAGE value="database added" />
+    <MESSAGE value="database script added" />
+    <option name="LAST_COMMIT_MESSAGE" value="database script added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/webalkterv">
@@ -550,13 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/ShutterDAO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -596,18 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="n#!!block;n#checkEverything#0" />
-            <element signature="n#!!block;n#selectOrder#0" />
-            <element signature="n#!!block;n#successOrder#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -699,19 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-598">
-          <caret line="33" column="72" selection-start-line="33" selection-start-column="72" selection-end-line="33" selection-end-column="72" />
-          <folding>
-            <element signature="n#!!block;n#generate#0" />
-            <element signature="n#!!block;n#generateItem#0" />
-            <element signature="n#!!block;n#insertOrderElement#0" />
-            <element signature="n#!!block;n#submitOrder#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -790,7 +797,7 @@
     <entry file="file://$PROJECT_DIR$/src/actions/ManagerActions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
-          <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="46" />
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -801,24 +808,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js">
+    <entry file="file://$PROJECT_DIR$/src/components/ManagerListOrders.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+        <state relative-caret-position="132">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
           <folding>
-            <element signature="n#!!block;n#readReadyToReceipt#0" />
-            <element signature="n#!!block;n#readReadyToOrganize#0" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ManagerListOrders.js">
+    <entry file="file://$PROJECT_DIR$/database/customer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="29" column="45" lean-forward="true" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        <state relative-caret-position="30">
+          <caret line="2" column="83" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="495" column="25" selection-start-line="495" selection-start-column="25" selection-end-line="495" selection-end-column="25" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/shutter.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/ShutterDAO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -835,7 +862,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/ManagerNavigation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="51" lean-forward="true" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -845,16 +872,43 @@
     <entry file="file://$PROJECT_DIR$/src/components/Clear.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js">
+    <entry file="file://$PROJECT_DIR$/error.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combined.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="544" column="52" selection-start-line="544" selection-start-column="52" selection-end-line="544" selection-end-column="52" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="11" selection-end-column="3" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="n#!!block;n#generate#0" />
+            <element signature="n#!!block;n#generateItem#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!block;n#readReadyToReceipt#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="83" column="80" selection-start-line="83" selection-start-column="80" selection-end-line="83" selection-end-column="80" />
+          <folding>
+            <element signature="n#!!block;n#checkEverything#0" />
           </folding>
         </state>
       </provider>

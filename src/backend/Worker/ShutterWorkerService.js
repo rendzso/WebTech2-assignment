@@ -1,5 +1,15 @@
 var srs = require('../ShutterDAO')
 const collection = 'Orders'
+var winston = require('winston')
+var logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    defaultMeta: { service: 'worker-service' },
+    transports: [
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'combined.log' })
+    ]
+});
 
 async function readOrders(worker, status) {
     const all = await srs.readAll(collection, {"submitted": "submitted"})
@@ -18,6 +28,7 @@ async function readOrders(worker, status) {
                 }
             }
         }
+        logger.info("readOrders request were found!")
         return (result)
     }
 }
@@ -48,8 +59,10 @@ async function selectOrder(data) {
     const where = {"customerID": data.customerID, "orderID": data.orderID, "items.itemID": data.itemID}
     if (await srs.counter(collection, where) === 1) {
         srs.updateOne(collection, where, {$set: {"items.$.worker": data.worker, "items.$.shutterStatus": "inProgress"}})
+        logger.info("selectOrder request were found, item selected!")
         return 'Item selected!'
     } else {
+        logger.error("selectOrder request were found, but the order is not submitted!")
         throw 'Cannot find the item, or the order is not submitted!'
     }
 
@@ -61,11 +74,14 @@ async function successOrder(data) {
     if (await srs.counter(collection, where) === 1) {
     await srs.updateOne(collection, where, {$set: {"items.$.shutterStatus": "success"}})
     if(await checkEverything(data.customerID, data.orderID)===1){
+        logger.info("successOrder request were found, the whole order is ready!")
         return 'The whole order is ready for organize!'
     } else {
+        logger.info("successOrder request were found, the item is ready!")
         return 'The item is ready!'
     }
     } else {
+        logger.error("successOrder request were found, but cannot find the work!")
         throw 'Cannot find the work!'
     }
 }

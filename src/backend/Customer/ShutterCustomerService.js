@@ -1,5 +1,15 @@
 var srs = require('../ShutterDAO')
 const collection = 'Customer'
+var winston = require('winston')
+var logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    defaultMeta: { service: 'customer-service' },
+    transports: [
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'combined.log' })
+    ]
+});
 
 async function generate(customerID) {
     return new Promise(async resolve => {
@@ -36,11 +46,13 @@ async function readAll(customerID) {
 
 async function readCustomerOrders(customerID) {
     const data = {"customerID": customerID}
+    logger.info("readCustomerOrders request were found!")
     return (await srs.readWithData("Orders", data))
 }
 
 async function readCustomerReceipts(customerID) {
     const data = {"customerID": customerID}
+    logger.info("readCustomerReceipts request were found!")
     return (await srs.readWithData("Receipts", data))
 }
 
@@ -48,8 +60,10 @@ async function insertCustomer(customer) {
 
     if (await srs.counter(collection, {"customerID": customer.customerID}) === 0) {
         srs.insert(collection, customer)
+        logger.info("insertCustomer request were found, customer added!")
         return 'Customer is added'
     } else {
+        logger.error("insertCustomer request were found, but customerID is used!")
         throw 'The username is used, please select another!'
     }
 
@@ -101,12 +115,15 @@ async function insertOrder(data) {
                     "payed": "no"
                 }
             )
+            logger.info("insertOrder request were found, and new order created, and items added!")
             return 'New order created, and items added!'
         } else {
             insertOrderElement(data);
+            logger.info("insertOrder request were found, and items added to the order!")
             return 'Item added to the order!'
         }
     } else {
+        logger.error("insertOrder request were found, but the user does not exists!")
         throw 'This user is not exists, cant order!'
     }
 }
@@ -116,9 +133,11 @@ async function submitOrder(data) {
         const where = {"customerID": data.customerID, "orderID": data.orderID}
         const submit = {$set: {"submitted": "submitted"}}
         srs.updateOne("Orders", where, submit)
+        logger.info("submitOrder request were found, and order is submitted!")
         return 'Order is submitted!'
     }
     else {
+        logger.error("submitOrder request were found, but the order is already submitted!")
         throw 'This order is already submitted!'
     }
 
@@ -130,9 +149,11 @@ async function pay(data) {
     if(await srs.counter("Orders", {"customerID": data.customerID, "orderID": data.orderID, "status": "readyToPay"})===1){
         srs.updateOne("Receipts", {"customerID": data.customerID, "orderID": data.orderID}, {$set: {"payed": "payed"}})
         srs.updateOne("Orders", where, {$set: {"payed": "payed", "status": "done"}})
+        logger.info("pay request were found, order is payed!")
         return 'The order is payed!'
     }
     else {
+        logger.error("pay request were found, but the order is not ready to pay!")
         throw 'This order is not ready to pay!'
     }
 }

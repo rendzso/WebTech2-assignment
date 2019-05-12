@@ -1,16 +1,29 @@
 var srs = require('../ShutterDAO')
 const collection = 'Orders'
 const moment =require('moment')
+var winston = require('winston')
+var logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    defaultMeta: { service: 'manager-service' },
+    transports: [
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'combined.log' })
+    ]
+});
 
 async function readAll() {
+    logger.info("readAll request were found!")
     return (await srs.readAll(collection))
 }
 
 async function readReadyToReceipt() {
+    logger.info("readReadyToReceipt request were found!")
     return (await srs.readWithData(collection, {"status": "creatingReceipt"}))
 }
 
 async function readReadyToOrganize() {
+    logger.info("readReadyToOrganize request were found!")
     return (await srs.readWithData(collection, {"status": "organize"}))
 }
 
@@ -21,8 +34,10 @@ async function organizeInstallation(data) {
             "customerID": data.customerID,
             "orderID": data.orderID
         }, {$set: {"deliveryTime": data.date, "status": "creatingReceipt"}})
+        logger.info("organizeInstallation request were found, delivery time added!")
         return 'Delivery time is added!'
     } else {
+        logger.error("organizeInstallation request were found, but the order is not ready to organize!")
         throw 'The order is not ready to organize!!'
     }
 
@@ -75,8 +90,10 @@ async function createReceipt(data) {
             "orderID": data.orderID
         }, {$set: {"status": "readyToPay"}})
 
-        return 'Receipt created, and order statuc changed to: ready to pay!'
+        logger.info("createReceipt request were found, and receipt is created!")
+        return 'Receipt created, and order status changed to: ready to pay!'
     } else {
+        logger.error("createReceipt request were found, but the order is not ready!")
         return 'The order is not ready! Cannot create receipt! Wait for workers to success!'
     }
 }
@@ -100,6 +117,7 @@ async function getCustomerWithMoney(){
         statistic.push({"y": total , "x":customer})
     }
 
+    logger.info("Statistic created!")
     return statistic
 }
 
