@@ -1,5 +1,6 @@
 var srs = require('../ShutterDAO')
 const collection = 'Orders'
+const moment =require('moment')
 
 async function readAll() {
     return (await srs.readAll(collection))
@@ -64,7 +65,7 @@ async function createReceipt(data) {
             "address":customer[0].place,
             "orderID": data.orderID,
             "total": all,
-            "dateline": "2019.05.30.",
+            "dateline": moment().add(10, 'days').format('YYYY.MM.DD'),
             "payed": "readyToPay",
             "order": order[0]
         })
