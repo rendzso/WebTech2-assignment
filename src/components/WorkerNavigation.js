@@ -42,7 +42,7 @@ class WorkerNavigation extends React.Component {
                         <button className="btn btn-dark btn-block" onClick={()=>{WorkerActions.showAvailable()}}>Show available works</button>
                     </div>
                     <div className="pt-2">
-                        <button className="btn btn-dark btn-block" >List my selected works</button>
+                        <button className="btn btn-dark btn-block" onClick={()=>{WorkerActions.showSelected(this.state.workerID)}}>List my selected works</button>
                     </div>
                 </div>
                 <div className="card-footer"></div>

@@ -2,7 +2,7 @@ import React from 'react';
 import WorkStore from "../stores/WorkStore";
 import WorkerActions from "../actions/WorkerActions"
 
-class WorkerListOfWorks extends React.Component {
+class WorkerListOfSelectedWorks extends React.Component {
 
     constructor(props) {
         super(props);
@@ -27,7 +27,7 @@ class WorkerListOfWorks extends React.Component {
         return (
 
             <div className="card">
-                <div className="card-header">List of available works</div>
+                <div className="card-header">List of selected works</div>
                 <div className="card-body">
                     {this.state.works !== undefined &&
                     <ul className="list-group">
@@ -47,16 +47,17 @@ class WorkerListOfWorks extends React.Component {
                                         <ul className="list-group">
                                             {work['items'].shutterParts.map((partname) => {
                                                 return(
-                                                <li key={work.customerID+work.orderID+work['items'].itemID+partname}
-                                                    className="list-group-item">
-                                                    {partname}
-                                                </li>)
+                                                    <li key={work.customerID+work.orderID+work['items'].itemID+partname}
+                                                        className="list-group-item">
+                                                        {partname}
+                                                    </li>)
                                             })}
                                         </ul>
-                                        <button className="btn btn-dark" disabled={this.state.actualWorker===undefined} onClick={()=>{WorkerActions.selectItem({"customerID": work.customerID,
+                                        Shutter status: {work['items'].shutterStatus}<br/>
+                                        <button className="btn btn-dark" disabled={work['items'].shutterStatus==="success"} onClick={()=>{WorkerActions.finishItem({"customerID": work.customerID,
                                             "orderID": work.orderID,
                                             "itemID": work["items"].itemID,
-                                            "worker": this.state.actualWorker})}}>I want that!</button>
+                                            "worker": this.state.actualWorker})}}>It is finished!</button>
                                     </li>)
                             })
                         }
@@ -70,4 +71,4 @@ class WorkerListOfWorks extends React.Component {
     }
 }
 
-export default WorkerListOfWorks
+export default WorkerListOfSelectedWorks

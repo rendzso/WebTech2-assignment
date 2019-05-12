@@ -23,6 +23,20 @@ class WorkerActions {
         });
     }
 
+    showSelected(workerID) {
+        ShutterDispatcher.handleViewAction({
+            actionType: "ShowWorkerSelectedWorks",
+            payload: workerID
+        });
+    }
+
+    finishItem(details){
+        ShutterDispatcher.handleViewAction({
+            actionType: "finishItem",
+            payload : details
+        });
+    }
+
 }
 
 export default new WorkerActions();

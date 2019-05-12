@@ -16,6 +16,8 @@ import WorkerNavigation from "../components/WorkerNavigation"
 import WorkerListOfWorks from "../components/WorkerListOfWorks";
 import WorkStore from "../stores/WorkStore"
 import WorkerActions from "../actions/WorkerActions";
+import WorkerListOfSelectedWorks from "../components/WorkerListOfSelectedWorks";
+import Clear from "../components/Clear";
 
 class ShutterDispatcher extends Dispatcher {
 
@@ -48,10 +50,12 @@ dispatcher.register((data) => {
             CustomerStore._customer = result;
             CustomerStore.emitChange();
         })
-        .then(()=>{ReactDom.render(
-        React.createElement(CustomerList),
-        document.getElementById("rightcontent")
-    )});
+        .then(() => {
+            ReactDom.render(
+                React.createElement(CustomerList),
+                document.getElementById("rightcontent")
+            )
+        });
 
 
     CustomerStore.emitChange();
@@ -62,6 +66,14 @@ dispatcher.register((data) => {
         return;
     }
 
+    ReactDom.render(
+        React.createElement(Clear),
+        document.getElementById('rightcontent')
+    );
+    ReactDom.render(
+        React.createElement(Clear),
+        document.getElementById('bigcontent')
+    );
     ReactDom.render(
         React.createElement(CustomerNavigation),
         document.getElementById('leftcontent')
@@ -75,26 +87,32 @@ dispatcher.register((data) => {
     }
 
     ReactDom.render(
+        React.createElement(Clear),
+        document.getElementById('bigcontent')
+    );
+    ReactDom.render(
         React.createElement(CustomerRegisterForm),
         document.getElementById('rightcontent')
     );
 
 });
 
-dispatcher.register((data)=>{
-    if(data.payload.actionType !== "registerCustomer"){
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "registerCustomer") {
         return;
     }
 
-    fetch('/customer/addCustomer',{
-        method : 'POST',
-        headers : {
-            "Content-Type" : 'application/json'
+    fetch('/customer/addCustomer', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
         },
-        body : JSON.stringify(data.payload.payload)
+        body: JSON.stringify(data.payload.payload)
     })
-        .then((response) => {return response.text()})
-        .then((result)=>{
+        .then((response) => {
+            return response.text()
+        })
+        .then((result) => {
             alert(result)
         })
 });
@@ -105,26 +123,32 @@ dispatcher.register((data) => {
     }
 
     ReactDom.render(
+        React.createElement(Clear),
+        document.getElementById('bigcontent')
+    );
+    ReactDom.render(
         React.createElement(OrderRegisterForm),
         document.getElementById('rightcontent')
     );
 
 });
 
-dispatcher.register((data)=>{
-    if(data.payload.actionType !== "registerOrder"){
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "registerOrder") {
         return;
     }
 
-    fetch('/customer/addOrder',{
-        method : 'POST',
-        headers : {
-            "Content-Type" : 'application/json'
+    fetch('/customer/addOrder', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
         },
-        body : JSON.stringify(data.payload.payload)
+        body: JSON.stringify(data.payload.payload)
     })
-        .then((response) => {return response.text()})
-        .then((result)=>{
+        .then((response) => {
+            return response.text()
+        })
+        .then((result) => {
             alert(result)
         })
 });
@@ -134,7 +158,7 @@ dispatcher.register((data) => {
         return;
     }
 
-    fetch('/customer/listCustomer?customerID='+data.payload.payload, {
+    fetch('/customer/listCustomer?customerID=' + data.payload.payload, {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
@@ -147,30 +171,38 @@ dispatcher.register((data) => {
             OrderStore._order = result;
             OrderStore.emitChange();
         })
-        .then(()=>{ReactDom.render(
-            React.createElement(CustomerListMyOrders),
-            document.getElementById("bigcontent")
-        )
-            OrderStore.emitChange();});
+        .then(() => {
+            ReactDom.render(
+                React.createElement(Clear),
+                document.getElementById('rightcontent')
+            );
+            ReactDom.render(
+                React.createElement(CustomerListMyOrders),
+                document.getElementById("bigcontent")
+            )
+            OrderStore.emitChange();
+        });
 
 
     OrderStore.emitChange();
 });
 
-dispatcher.register((data)=>{
-    if(data.payload.actionType !== "submitOrder"){
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "submitOrder") {
         return;
     }
 
-    fetch('/customer/submitOrder',{
-        method : 'POST',
-        headers : {
-            "Content-Type" : 'application/json'
+    fetch('/customer/submitOrder', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
         },
-        body : JSON.stringify(data.payload.payload)
+        body: JSON.stringify(data.payload.payload)
     })
-        .then((response) => {return response.text()})
-        .then((result)=>{
+        .then((response) => {
+            return response.text()
+        })
+        .then((result) => {
             CustomerActions.listMyOrders(data.payload.payload.customerID)
             alert(result)
             OrderStore.emitChange()
@@ -182,7 +214,7 @@ dispatcher.register((data) => {
         return;
     }
 
-    fetch('/customer/listReceipts?customerID='+data.payload.payload, {
+    fetch('/customer/listReceipts?customerID=' + data.payload.payload, {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
@@ -195,30 +227,38 @@ dispatcher.register((data) => {
             ReceiptStore._receipt = result;
             ReceiptStore.emitChange();
         })
-        .then(()=>{ReactDom.render(
-            React.createElement(CustomerListMyReceipts),
-            document.getElementById("bigcontent")
-        )
-            ReceiptStore.emitChange();});
+        .then(() => {
+            ReactDom.render(
+                React.createElement(Clear),
+                document.getElementById('rightcontent')
+            );
+            ReactDom.render(
+                React.createElement(CustomerListMyReceipts),
+                document.getElementById("bigcontent")
+            )
+            ReceiptStore.emitChange();
+        });
 
 
     ReceiptStore.emitChange();
 });
 
-dispatcher.register((data)=>{
-    if(data.payload.actionType !== "payReceipt"){
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "payReceipt") {
         return;
     }
 
-    fetch('/customer/pay',{
-        method : 'POST',
-        headers : {
-            "Content-Type" : 'application/json'
+    fetch('/customer/pay', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
         },
-        body : JSON.stringify(data.payload.payload)
+        body: JSON.stringify(data.payload.payload)
     })
-        .then((response) => {return response.text()})
-        .then((result)=>{
+        .then((response) => {
+            return response.text()
+        })
+        .then((result) => {
             CustomerActions.listMyReceipts(data.payload.payload.customerID)
             alert(result)
             ReceiptStore.emitChange()
@@ -231,6 +271,14 @@ dispatcher.register((data) => {
         return;
     }
 
+    ReactDom.render(
+        React.createElement(Clear),
+        document.getElementById('bigcontent')
+    );
+    ReactDom.render(
+        React.createElement(Clear),
+        document.getElementById('rightcontent')
+    );
     ReactDom.render(
         React.createElement(WorkerNavigation),
         document.getElementById('leftcontent')
@@ -256,31 +304,95 @@ dispatcher.register((data) => {
             WorkStore._work = result;
             WorkStore.emitChange();
         })
-        .then(()=>{ReactDom.render(
-            React.createElement(WorkerListOfWorks),
-            document.getElementById("rightcontent")
-        )
-            WorkStore.emitChange();});
+        .then(() => {
+            ReactDom.render(
+                React.createElement(Clear),
+                document.getElementById('bigcontent')
+            );
+            ReactDom.render(
+                React.createElement(WorkerListOfWorks),
+                document.getElementById("rightcontent")
+            )
+            WorkStore.emitChange();
+        });
 
 
     WorkStore.emitChange();
 });
 
-dispatcher.register((data)=>{
-    if(data.payload.actionType !== "selectItem"){
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "selectItem") {
         return;
     }
 
-    fetch('/worker/select',{
-        method : 'POST',
-        headers : {
-            "Content-Type" : 'application/json'
+    fetch('/worker/select', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
         },
-        body : JSON.stringify(data.payload.payload)
+        body: JSON.stringify(data.payload.payload)
     })
-        .then((response) => {return response.text()})
-        .then((result)=>{
-            WorkerActions.showAvailable(data.payload.payload.customerID)
+        .then((response) => {
+            return response.text()
+        })
+        .then((result) => {
+            WorkerActions.showAvailable()
+            alert(result)
+            WorkStore.emitChange()
+        })
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ShowWorkerSelectedWorks") {
+        return;
+    }
+
+    fetch('/worker/listOwn?worker=' + data.payload.payload, {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }).then(response => {
+        console.log(response)
+        return response.json()
+    })
+        .then(result => {
+            WorkStore._work = result;
+            WorkStore.emitChange();
+        })
+        .then(() => {
+            ReactDom.render(
+                React.createElement(Clear),
+                document.getElementById('bigcontent')
+            );
+            ReactDom.render(
+                React.createElement(WorkerListOfSelectedWorks),
+                document.getElementById("rightcontent")
+            )
+            WorkStore.emitChange();
+        });
+
+
+    WorkStore.emitChange();
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "finishItem") {
+        return;
+    }
+
+    fetch('/worker/success', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(data.payload.payload)
+    })
+        .then((response) => {
+            return response.text()
+        })
+        .then((result) => {
+            WorkerActions.showSelected(data.payload.payload.worker)
             alert(result)
             WorkStore.emitChange()
         })
