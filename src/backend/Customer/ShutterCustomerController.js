@@ -3,7 +3,7 @@ var router = express.Router()
 var srs = require('./ShutterCustomerService')
 
 router.get('/list', async (req, res) => {
-    res.status(200).send(await srs.readAll())
+    res.status(200).send(await srs.readAll(req.query.customerID))
 })
 
 router.get('/listCustomer', async (req, res) => {

@@ -30,8 +30,8 @@ async function generateItem(customerID) {
 
 }
 
-async function readAll() {
-    return (await srs.readAll(collection))
+async function readAll(customerID) {
+    return (await srs.readWithData(collection, {"customerID": customerID}))
 }
 
 async function readCustomerOrders(customerID) {

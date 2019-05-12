@@ -19,6 +19,8 @@ import WorkerActions from "../actions/WorkerActions";
 import WorkerListOfSelectedWorks from "../components/WorkerListOfSelectedWorks";
 import Clear from "../components/Clear";
 import ManagerNavigation from "../components/ManagerNavigation";
+import ManagerListOrders from "../components/ManagerListOrders";
+import ManagerActions from "../actions/ManagerActions";
 
 class ShutterDispatcher extends Dispatcher {
 
@@ -417,6 +419,101 @@ dispatcher.register((data) => {
         document.getElementById('leftcontent')
     );
 
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ManagerListOrders") {
+        return;
+    }
+
+    fetch('/manager/list', {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }).then(response => {
+        console.log(response)
+        return response.json()
+    })
+        .then(result => {
+            WorkStore._work = result;
+            WorkStore.emitChange();
+        })
+        .then(() => {
+            ReactDom.render(
+                React.createElement(Clear),
+                document.getElementById('bigcontent')
+            );
+            ReactDom.render(
+                React.createElement(ManagerListOrders),
+                document.getElementById("rightcontent")
+            )
+            WorkStore.emitChange();
+        });
+
+
+    WorkStore.emitChange();
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ManagerShowCustomerDetails") {
+        return;
+    }
+
+    fetch('/customer/list?customerID='+data.payload.payload, {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }).then(response => {
+        console.log(response)
+        return response.json()
+    }).then(result => {
+        alert("Customer Details:\n\nCustomerID: " +result[0].customerID+ "\nName: " +result[0].name+ "\nphone number: " +result[0].phone+ "\nPlace: " +result[0].place)
+    })
+
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ManagerOrganizeOrder") {
+        return;
+    }
+
+    fetch('/manager/organize', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(data.payload.payload)
+    })
+        .then((response) => {
+            return response.text()
+        })
+        .then((result) => {
+            ManagerActions.ListOrders()
+            alert(result)
+        })
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ManagerCreateReceipt") {
+        return;
+    }
+
+    fetch('/manager/createReceipt', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(data.payload.payload)
+    })
+        .then((response) => {
+            return response.text()
+        })
+        .then((result) => {
+            ManagerActions.ListOrders()
+            alert(result)
+        })
 });
 
 export default dispatcher;
