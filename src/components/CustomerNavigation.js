@@ -43,10 +43,10 @@ class CustomerNavigation extends React.Component {
                         }}/>
                     </div>
                     <div className="pt-2">
-                        <button className="btn btn-dark btn-block" onClick={()=>{CustomerActions.listMyOrders(this.state.customerID)}}>Show my orders</button>
+                        <button className="btn btn-dark btn-block" disabled={this.state.customerID===""} onClick={()=>{CustomerActions.listMyOrders(this.state.customerID)}}>Show my orders</button>
                     </div>
                     <div className="pt-2">
-                        <button className="btn btn-dark btn-block" onClick={()=>{CustomerActions.listMyReceipts(this.state.customerID)}}>Show my receipts</button>
+                        <button className="btn btn-dark btn-block" disabled={this.state.customerID===""} onClick={()=>{CustomerActions.listMyReceipts(this.state.customerID)}}>Show my receipts</button>
                     </div>
                 </div>
                 <div className="card-footer"></div>

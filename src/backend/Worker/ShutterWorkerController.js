@@ -7,10 +7,18 @@ router.get('/list', async (req, res) => {
 })
 
 router.get('/listOwn', async (req, res) => {
+    if (req.query.worker === '') {
+        res.status(414).send('Worker ID missing!');
+        return;
+    }
     res.status(200).send(await srs.readReady(req.query.worker, "placeholder"))
 })
 
 router.post('/select', async (req, res) => {
+    if (req.query.worker === '') {
+        res.status(414).send('Worker ID missing!');
+        return;
+    }
     try {
         res.status(200).send(await srs.selectOrder(req.body))
     } catch (err) {
@@ -19,6 +27,10 @@ router.post('/select', async (req, res) => {
 })
 
 router.post('/success', async (req, res) => {
+    if (req.query.worker === '') {
+        res.status(414).send('Worker ID missing!');
+        return;
+    }
     try {
         res.status(200).send(await srs.successOrder(req.body))
     } catch (err) {

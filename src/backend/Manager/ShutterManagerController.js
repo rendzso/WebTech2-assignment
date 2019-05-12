@@ -15,6 +15,10 @@ router.get('/listToOrganize', async (req, res) => {
 })
 
 router.post('/organize', async (req, res) => {
+    if (req.body.date === '') {
+        res.status(414).send('Date is missing!');
+        return;
+    }
     try {
         res.status(200).send(await srs.setDeliveryTime(req.body))
     } catch (err) {

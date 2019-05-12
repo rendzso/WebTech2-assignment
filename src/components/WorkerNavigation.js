@@ -32,17 +32,17 @@ class WorkerNavigation extends React.Component {
                 <div className="card-header">Worker Navigation Bar</div>
                 <div className="card-body">
                     <div className="pb-2 text-center">
-                        <input className="w-70" type="text" defaultValue={this.state.workerID} onChange={(event) => {
+                        Worker id: <input className="w-70" type="text" defaultValue={this.state.workerID} onChange={(event) => {
                             this.state.workerID = event.target.value
                             this.setState({workerID: this.state.workerID});
                             WorkStore.emitChange(this.state.workerID);
                         }}/>
                     </div>
                     <div>
-                        <button className="btn btn-dark btn-block" onClick={()=>{WorkerActions.showAvailable()}}>Show available works</button>
+                        <button className="btn btn-dark btn-block" disabled={this.state.workerID===""} onClick={()=>{WorkerActions.showAvailable()}}>Show available works</button>
                     </div>
                     <div className="pt-2">
-                        <button className="btn btn-dark btn-block" onClick={()=>{WorkerActions.showSelected(this.state.workerID)}}>List my selected works</button>
+                        <button className="btn btn-dark btn-block" disabled={this.state.workerID===""} onClick={()=>{WorkerActions.showSelected(this.state.workerID)}}>List my selected works</button>
                     </div>
                 </div>
                 <div className="card-footer"></div>

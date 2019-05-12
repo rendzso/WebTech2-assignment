@@ -3,7 +3,7 @@ import EventEmitter from 'events'
 class WorkStore extends EventEmitter{
 
     _work = []
-    _actualWorker = "Worker ID"
+    _actualWorker = ""
 
     emitChange(workerID){
         if(workerID!==undefined){this._actualWorker = workerID}

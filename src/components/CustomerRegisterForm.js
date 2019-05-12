@@ -36,7 +36,7 @@ class CustomerRegisterForm extends React.Component {
                     <div className="row">
                         <div className="col-12">
                             <div className="row">
-                                <div className="col-4">User Name</div>
+                                <div className="col-4">User Name(customerID)</div>
                                 <div className="col-8">
                                     <input
                                         onChange={(event) => {

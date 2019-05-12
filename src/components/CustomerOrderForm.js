@@ -80,6 +80,7 @@ class CustomerOrderForm extends React.Component {
                                             this.setState({shutterType: this.state.shutterType});
                                         }}
                                     >
+                                        <option value="">Please, select!</option>
                                         <option value="simple">Simple</option>
                                         <option value="simpleWithMosquitoNet">Simple + Mosquito net</option>
                                         <option value="automata">Automata</option>
