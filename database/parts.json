@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5cd1920eb33200dab15e39eb"},"type":"simple","price":100.0,"parts":["bracket","handOperatedChain","boxPlate","rollingShaft","bearing","leftDoorRail","rightDoorRail","seatPlate"]}
+{"_id":{"$oid":"5cd1936bb33200dab15e39ec"},"type":"simpleWithMosquitoNet","price":150.0,"parts":["bracket","handOperatedChain","boxPlate","rollingShaft","bearing","leftDoorRail","rightDoorRail","seatPlate","mosquitoNetBox","mosquitoNet"]}
+{"_id":{"$oid":"5cd193a0b33200dab15e39ed"},"type":"automata","price":200.0,"parts":["bracket","engineOperatedChain","boxPlate","rollingShaft","bearing","leftDoorRail","rightDoorRail","seatPlate","plug","engineChain"]}
+{"_id":{"$oid":"5cd193c7b33200dab15e39ee"},"type":"automataWithMosquitoNet","price":250.0,"parts":["bracket","engineOperatedChain","boxPlate","rollingShaft","bearing","leftDoorRail","rightDoorRail","seatPlate","mosquitoNetBox","mosquitoNet","plug","engineChain"]}

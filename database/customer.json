@@ -1,0 +1,6 @@
+{"_id":{"$oid":"5cd82f0570200f0a259e4b0f"},"customerID":"vinnai.boglarka","name":"Vinnai Boglárka Ágnes","phone":"06-20-952-4267","place":"3900 Szerencs, Fő út 10."}
+{"_id":{"$oid":"5cd82f6270200f0a259e4b10"},"customerID":"timella","name":"Göndőr Timea","phone":"06-70-124-3576","place":"1000 Budapest, Hősök tere 18B/4"}
+{"_id":{"$oid":"5cd82f9370200f0a259e4b11"},"customerID":"pannni","name":"Dávid Panna","phone":"06-70-356-5417","place":"2045 Siófok, Vásár utca 24."}
+{"_id":{"$oid":"5cd82fbf70200f0a259e4b12"},"customerID":"domcsa","name":"Kovács Dominik Csaba","phone":"06-30-347-4892","place":"2045 Siófok, Petőfi Sándor út 168."}
+{"_id":{"$oid":"5cd82feb70200f0a259e4b13"},"customerID":"geza94","name":"Benczik Géza","phone":"06-30-347-6872","place":"1486 Vác, 2. sugárút 25/A"}
+{"_id":{"$oid":"5cd8301970200f0a259e4b14"},"customerID":"livinemes","name":"Nemes Lívia Eperke","phone":"06-20-547-9721","place":"3897 Abaújszántó, Fő út 12."}
