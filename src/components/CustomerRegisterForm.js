@@ -30,7 +30,7 @@ class CustomerRegisterForm extends React.Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card" id="boxes">
                 <div className="card-header">Customer Registration Menu</div>
                 <div className="card-body">
                     <div className="row">

@@ -27,7 +27,7 @@ class CustomerNavigation extends React.Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card" id="navigationBox">
                 <div className="card-header">Customer Navigation Bar</div>
                 <div className="card-body">
                     <div>

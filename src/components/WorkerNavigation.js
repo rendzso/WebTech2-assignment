@@ -28,7 +28,7 @@ class WorkerNavigation extends React.Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card" id="navigationBox">
                 <div className="card-header">Worker Navigation Bar</div>
                 <div className="card-body">
                     <div className="pb-2 text-center">

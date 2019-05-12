@@ -30,7 +30,7 @@ class CustomerListMyOrders extends React.Component{
     render(){
         return(
 
-            <div className="card">
+            <div className="card" id="boxes">
                 <div className="card-header">My order list</div>
                 <div className="card-body">
                     {this.state.orders !== undefined &&

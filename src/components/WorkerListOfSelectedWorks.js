@@ -26,7 +26,7 @@ class WorkerListOfSelectedWorks extends React.Component {
     render() {
         return (
 
-            <div className="card">
+            <div className="card" id="boxes">
                 <div className="card-header">List of selected works</div>
                 <div className="card-body">
                     {this.state.works !== undefined &&

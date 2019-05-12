@@ -15,10 +15,12 @@ body{
   color: white;
 }
 
-.collapse {
-  display: none
+#navigationBox{
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
-.collapse.in {
-  display: block
+#boxes{
+  border: 2px solid sandybrown;
+  border-radius: 10px;
 }

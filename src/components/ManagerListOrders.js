@@ -27,7 +27,7 @@ class ManagerListOrders extends React.Component {
     render() {
         return (
 
-            <div className="card">
+            <div className="card" id="boxes">
                 <div className="card-header">List of available works</div>
                 <div className="card-body">
                     {this.state.works !== undefined &&

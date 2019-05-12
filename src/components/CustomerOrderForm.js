@@ -31,7 +31,7 @@ class CustomerOrderForm extends React.Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card" id="boxes">
                 <div className="card-header">Order Menu</div>
                 <div className="card-body">
                     <div className="row">
@@ -81,10 +81,10 @@ class CustomerOrderForm extends React.Component {
                                         }}
                                     >
                                         <option value="">Please, select!</option>
-                                        <option value="simple">Simple</option>
-                                        <option value="simpleWithMosquitoNet">Simple + Mosquito net</option>
-                                        <option value="automata">Automata</option>
-                                        <option value="automataWithMosquitoNet">Automata + Mosquito net</option>
+                                        <option value="simple">Simple (100$)</option>
+                                        <option value="simpleWithMosquitoNet">Simple + Mosquito net (150$)</option>
+                                        <option value="automata">Automata (200$)</option>
+                                        <option value="automataWithMosquitoNet">Automata + Mosquito net (250$)</option>
                                     </select>
                                 </div>
                             </div>
