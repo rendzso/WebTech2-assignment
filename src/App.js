@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import CustomerActions from "./actions/CustomerActions"
 import WorkerActions from "./actions/WorkerActions";
+import ManagerActions from "./actions/ManagerActions";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
                       <a className="nav-link" onClick={()=>{WorkerActions.showNavigation()}}>Worker</a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" href="#">Manager</a>
+                      <a className="nav-link" onClick={()=>{ManagerActions.showNavigation()}}>Manager</a>
                   </li>
               </ul>
           </nav>

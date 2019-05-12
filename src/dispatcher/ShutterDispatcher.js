@@ -18,6 +18,7 @@ import WorkStore from "../stores/WorkStore"
 import WorkerActions from "../actions/WorkerActions";
 import WorkerListOfSelectedWorks from "../components/WorkerListOfSelectedWorks";
 import Clear from "../components/Clear";
+import ManagerNavigation from "../components/ManagerNavigation";
 
 class ShutterDispatcher extends Dispatcher {
 
@@ -396,6 +397,26 @@ dispatcher.register((data) => {
             alert(result)
             WorkStore.emitChange()
         })
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ShowManagerNavigation") {
+        return;
+    }
+
+    ReactDom.render(
+        React.createElement(Clear),
+        document.getElementById('rightcontent')
+    );
+    ReactDom.render(
+        React.createElement(Clear),
+        document.getElementById('bigcontent')
+    );
+    ReactDom.render(
+        React.createElement(ManagerNavigation),
+        document.getElementById('leftcontent')
+    );
+
 });
 
 export default dispatcher;

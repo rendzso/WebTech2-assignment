@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a3ea7bc-f68f-4dd9-87fe-65c35757f4d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Clear.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/WorkerListOfSelectedWorks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actions/ManagerActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ManagerListOrders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ManagerNavigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/WorkerActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/WorkerActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WorkerListOfWorks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WorkerListOfWorks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WorkerNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WorkerNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,91 +22,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/WorkerListOfWorks.js">
+        <entry file="file://$PROJECT_DIR$/src/components/ManagerNavigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="55" column="108" selection-start-line="55" selection-start-column="108" selection-end-line="55" selection-end-column="108" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/WorkerListOfSelectedWorks.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="56" column="112" selection-start-line="56" selection-start-column="112" selection-end-line="56" selection-end-column="112" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/stores/WorkStore.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actions/WorkerActions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/WorkerNavigation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="41" column="111" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="111" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="90" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CustomerList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="57" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js">
+        <entry file="file://$PROJECT_DIR$/src/components/ManagerListOrders.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actions/ManagerActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="366" column="14" selection-start-line="366" selection-start-column="14" selection-end-line="366" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -142,14 +75,12 @@
         <option value="$PROJECT_DIR$/src/components/CustomerList.js" />
         <option value="$PROJECT_DIR$/src/stores/CustomerStore.js" />
         <option value="$PROJECT_DIR$/src/stores/OrderStore.js" />
-        <option value="$PROJECT_DIR$/src/App.scss" />
         <option value="$PROJECT_DIR$/src/stores/ReceiptStore.js" />
         <option value="$PROJECT_DIR$/src/components/CustomerNavigation.js" />
         <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js" />
         <option value="$PROJECT_DIR$/src/components/CustomerListMyReceipts.js" />
         <option value="$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js" />
         <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/CustomerListMyOrders.js" />
         <option value="$PROJECT_DIR$/src/actions/CustomerActions.js" />
         <option value="$PROJECT_DIR$/src/stores/WorkStore.js" />
@@ -158,7 +89,12 @@
         <option value="$PROJECT_DIR$/src/components/WorkerListOfWorks.js" />
         <option value="$PROJECT_DIR$/src/components/WorkerNavigation.js" />
         <option value="$PROJECT_DIR$/src/components/Clear.js" />
+        <option value="$PROJECT_DIR$/src/actions/ManagerActions.js" />
         <option value="$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/App.scss" />
+        <option value="$PROJECT_DIR$/src/components/ManagerNavigation.js" />
+        <option value="$PROJECT_DIR$/src/components/ManagerListOrders.js" />
       </list>
     </option>
   </component>
@@ -318,7 +254,7 @@
       <workItem from="1557485917712" duration="608000" />
       <workItem from="1557486870548" duration="17837000" />
       <workItem from="1557517605912" duration="6430000" />
-      <workItem from="1557605636525" duration="9644000" />
+      <workItem from="1557605636525" duration="11785000" />
     </task>
     <task id="LOCAL-00001" summary="Basics, and basic list function added.">
       <created>1556814854441</created>
@@ -453,16 +389,24 @@
       <option name="project" value="LOCAL" />
       <updated>1557621350070</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Customer and worker fully working">
+      <created>1557623827216</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1557623827216</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147801000" />
+    <option name="totallyTimeSpent" value="149942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49853802" visible="true" weight="0.20757738" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49853802" visible="true" weight="0.20757738" />
       <window_info id="Structure" order="1" sideWeight="0.501462" side_tool="true" weight="0.14087513" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -476,7 +420,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.19438446" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.19438446" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -525,7 +469,8 @@
     <MESSAGE value="Added some components" />
     <MESSAGE value="Customer components added, and backend hotfix" />
     <MESSAGE value="Worker component added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worker component added" />
+    <MESSAGE value="Customer and worker fully working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Customer and worker fully working" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/webalkterv">
@@ -587,13 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -730,13 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/WorkerActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/WorkerListOfSelectedWorks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -757,23 +688,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Clear.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/WorkerNavigation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="41" column="111" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="111" />
+        <state>
+          <caret lean-forward="true" selection-end-line="54" selection-end-column="31" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/actions/WorkerActions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="90" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -787,22 +722,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Clear.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="366" column="14" selection-start-line="366" selection-start-column="14" selection-end-line="366" selection-end-column="14" />
+        <state relative-caret-position="604">
+          <caret line="415" column="45" selection-start-line="415" selection-start-column="45" selection-end-line="415" selection-end-column="45" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/ManagerActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ManagerNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ManagerListOrders.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
