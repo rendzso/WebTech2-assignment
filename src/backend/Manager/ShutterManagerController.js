@@ -34,4 +34,8 @@ router.post('/createReceipt', async (req, res) => {
     }
 })
 
+router.get('/statistic', async (req, res) => {
+    res.status(200).send(await srs.statistic())
+})
+
 module.exports = router;

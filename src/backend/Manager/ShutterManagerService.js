@@ -81,10 +81,33 @@ async function createReceipt(data) {
     }
 }
 
+async function getCustomerWithMoney(){
+    let data =await srs.readAll("Receipts")
+    let customerlist = []
+    let statistic = []
+    for(let receipt of data){
+        if(customerlist.indexOf(receipt.customerID) === -1){
+            customerlist.push(receipt.customerID)
+        }
+    }
+    for (let customer of customerlist){
+        let total = 0
+        for(let receipt of data){
+            if(customer === receipt.customerID){
+                total += receipt.total
+            }
+        }
+        statistic.push({"customerID":customer, "total": total})
+    }
+
+    return statistic
+}
+
 module.exports = {
     "listAll": readAll,
     "listReadyToReceipt": readReadyToReceipt,
     "listReadyToOrganize": readReadyToOrganize,
     "setDeliveryTime": organizeInstallation,
-    "createReceipt": createReceipt
+    "createReceipt": createReceipt,
+    "statistic": getCustomerWithMoney
 }
