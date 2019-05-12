@@ -37,6 +37,7 @@ class WorkerActions {
         });
     }
 
+
 }
 
 export default new WorkerActions();

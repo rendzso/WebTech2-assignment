@@ -13,7 +13,7 @@ class ManagerNavigation extends React.Component {
                         <button className="btn btn-dark btn-block" onClick={()=>{ManagerActions.ListOrders()}}>List orders & jobs</button>
                     </div>
                     <div className="pt-2">
-                        <button className="btn btn-dark btn-block">Check statistic</button>
+                        <button className="btn btn-dark btn-block" onClick={()=>{ManagerActions.showStatistic()}}>Check statistic</button>
                     </div>
                 </div>
                 <div className="card-footer"></div>

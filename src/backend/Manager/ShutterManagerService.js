@@ -97,7 +97,7 @@ async function getCustomerWithMoney(){
                 total += receipt.total
             }
         }
-        statistic.push({"customerID":customer, "total": total})
+        statistic.push({"y": total , "x":customer})
     }
 
     return statistic

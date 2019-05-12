@@ -21,6 +21,8 @@ import Clear from "../components/Clear";
 import ManagerNavigation from "../components/ManagerNavigation";
 import ManagerListOrders from "../components/ManagerListOrders";
 import ManagerActions from "../actions/ManagerActions";
+import ManagerStatistic from "../components/ManagerStatistic";
+import StatisticStore from "../stores/StatisticStore";
 
 class ShutterDispatcher extends Dispatcher {
 
@@ -514,6 +516,40 @@ dispatcher.register((data) => {
             ManagerActions.ListOrders()
             alert(result)
         })
+});
+
+dispatcher.register((data) => {
+    if (data.payload.actionType !== "ManagerShowStatistic") {
+        return;
+    }
+
+    fetch('/manager/statistic', {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }).then(response => {
+        console.log(response)
+        return response.json()
+    })
+        .then(result => {
+            StatisticStore._stats = result;
+            StatisticStore.emitChange();
+        })
+        .then(() => {
+            ReactDom.render(
+                React.createElement(Clear),
+                document.getElementById('rightcontent')
+            );
+            ReactDom.render(
+                React.createElement(ManagerStatistic),
+                document.getElementById("bigcontent")
+            )
+            WorkStore.emitChange();
+        });
+
+
+    WorkStore.emitChange();
 });
 
 export default dispatcher;

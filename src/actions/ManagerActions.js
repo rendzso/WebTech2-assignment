@@ -37,6 +37,13 @@ import ShutterDispatcher from '../dispatcher/ShutterDispatcher'
          });
      }
 
+     showStatistic() {
+         ShutterDispatcher.handleViewAction({
+             actionType: "ManagerShowStatistic",
+             payload: null
+         });
+     }
+
  }
 
 export default new ManagerActions();
