@@ -72,6 +72,7 @@ class CustomerActions {
         });
     }
 
+
 }
 
 export default new CustomerActions();

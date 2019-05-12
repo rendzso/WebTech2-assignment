@@ -16,6 +16,13 @@ class WorkerActions {
         });
     }
 
+    selectItem(details){
+        ShutterDispatcher.handleViewAction({
+            actionType: "selectItem",
+            payload : details
+        });
+    }
+
 }
 
 export default new WorkerActions();

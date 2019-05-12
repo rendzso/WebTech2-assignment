@@ -1,17 +1,17 @@
 import React from 'react';
-import WorkerActions from "../actions/WorkerActions";
 import WorkStore from "../stores/WorkStore";
+import WorkerActions from "../actions/WorkerActions"
 
 class WorkerListOfWorks extends React.Component {
 
     constructor(props) {
         super(props);
         this._onChange = this._onChange.bind(this);
-        this.state = {works: []};
+        this.state = {works: [], actualWorker: ''};
     }
 
     _onChange() {
-        this.setState({works: WorkStore._work});
+        this.setState({works: WorkStore._work, actualWorker: WorkStore._actualWorker});
     }
 
     componentDidMount() {
@@ -53,7 +53,10 @@ class WorkerListOfWorks extends React.Component {
                                                 </li>)
                                             })}
                                         </ul>
-                                        <button className="btn btn-dark">I want that!</button>
+                                        <button className="btn btn-dark" disabled={this.state.actualWorker==undefined} onClick={()=>{WorkerActions.selectItem({"customerID": work.customerID,
+                                            "orderID": work.orderID,
+                                            "itemID": work["items"].itemID,
+                                            "worker": this.state.actualWorker})}}>I want that!</button>
                                     </li>)
                             })
                         }

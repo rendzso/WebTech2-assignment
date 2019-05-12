@@ -15,6 +15,7 @@ import ReceiptStore from "../stores/ReceiptStore";
 import WorkerNavigation from "../components/WorkerNavigation"
 import WorkerListOfWorks from "../components/WorkerListOfWorks";
 import WorkStore from "../stores/WorkStore"
+import WorkerActions from "../actions/WorkerActions";
 
 class ShutterDispatcher extends Dispatcher {
 
@@ -263,6 +264,26 @@ dispatcher.register((data) => {
 
 
     WorkStore.emitChange();
+});
+
+dispatcher.register((data)=>{
+    if(data.payload.actionType !== "selectItem"){
+        return;
+    }
+
+    fetch('/worker/select',{
+        method : 'POST',
+        headers : {
+            "Content-Type" : 'application/json'
+        },
+        body : JSON.stringify(data.payload.payload)
+    })
+        .then((response) => {return response.text()})
+        .then((result)=>{
+            WorkerActions.showAvailable(data.payload.payload.customerID)
+            alert(result)
+            WorkStore.emitChange()
+        })
 });
 
 export default dispatcher;
