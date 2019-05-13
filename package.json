@@ -17,8 +17,14 @@
     "moment": "^2.24.0",
     "react-vis": "^1.11.7"
   },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "sinon": "^7.3.2",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node src/backend/server.js & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
