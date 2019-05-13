@@ -24,10 +24,11 @@
     "chai-http": "^4.3.0"
   },
   "scripts": {
-    "start": "node src/backend/server.js & react-scripts start",
+    "start": "npm run sass & node src/backend/server.js & react-scripts start",
     "build": "react-scripts build",
     "test": "mocha src/backend/tests",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sass": "node-sass src/App.scss src/App.css"
   },
   "eslintConfig": {
     "extends": "react-app"

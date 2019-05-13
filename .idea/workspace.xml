@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a3ea7bc-f68f-4dd9-87fe-65c35757f4d5" name="Default Changelist" comment="Some test, and structure change">
+    <list default="true" id="3a3ea7bc-f68f-4dd9-87fe-65c35757f4d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Manager/ShutterManagerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Manager/ShutterManagerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/backend/tests/EndToEndTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
+            <state relative-caret-position="735">
               <caret line="49" column="41" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="59" />
             </state>
           </provider>
@@ -34,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/src/backend/tests/CustomerServiceTest.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
-              <caret line="33" column="48" lean-forward="true" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+              <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -42,8 +37,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            <state relative-caret-position="210">
+              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-56">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -127,10 +131,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1366" />
-    <option name="y" value="-2" />
-    <option name="width" value="1920" />
-    <option name="height" value="1082" />
+    <option name="y" value="25" />
+    <option name="width" value="1366" />
+    <option name="height" value="743" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -138,6 +141,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,11 +154,22 @@
               <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="App.scss" type="620a8d5e:NestingTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,7 +269,8 @@
       <workItem from="1557605636525" duration="22570000" />
       <workItem from="1557684807969" duration="28608000" />
       <workItem from="1557738179174" duration="455000" />
-      <workItem from="1557738947811" duration="15382000" />
+      <workItem from="1557738947811" duration="16591000" />
+      <workItem from="1557761371908" duration="495000" />
     </task>
     <task id="LOCAL-00001" summary="Basics, and basic list function added.">
       <created>1556814854441</created>
@@ -501,11 +517,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557755628617</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="package optimised, and created prototypes everywhere">
+      <created>1557758205737</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1557758205737</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205172000" />
+    <option name="totallyTimeSpent" value="206876000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -517,13 +540,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="-2" width="1920" height="1082" extended-state="6" />
+    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49853802" visible="true" weight="0.14621131" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49853802" visible="true" weight="0.14545454" />
       <window_info id="Structure" order="1" sideWeight="0.501462" side_tool="true" weight="0.14087513" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.20146905" />
@@ -534,7 +556,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32948583" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.22560336" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2247557" />
+      <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -569,7 +592,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.sh" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="manager create receipt function added" />
     <MESSAGE value="worker pay function also set the receipt table" />
     <MESSAGE value="createReceipt function changed" />
     <MESSAGE value="exception handling added to customer" />
@@ -594,7 +616,8 @@
     <MESSAGE value="cursor changed on navbar buttons" />
     <MESSAGE value="Some test, and run script" />
     <MESSAGE value="Some test, and structure change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some test, and structure change" />
+    <MESSAGE value="package optimised, and created prototypes everywhere" />
+    <option name="LAST_COMMIT_MESSAGE" value="package optimised, and created prototypes everywhere" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/index.html">
@@ -866,13 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/tests/EndToEndTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="49" column="41" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/combined.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-864" />
@@ -882,13 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="1" lean-forward="true" selection-start-line="12" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -906,13 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/tests/CustomerServiceTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="48" lean-forward="true" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -937,6 +939,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/tests/EndToEndTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/tests/CustomerServiceTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/Worker/ShutterWorkerController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -944,10 +960,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+        <state relative-caret-position="210">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
