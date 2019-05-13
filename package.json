@@ -18,7 +18,7 @@
     "react-vis": "^1.11.7"
   },
   "devDependencies": {
-    "mocha": "^6.1.4",
+    "mocha": "3.5.3",
     "sinon": "^7.3.2",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0"

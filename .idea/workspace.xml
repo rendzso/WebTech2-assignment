@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a3ea7bc-f68f-4dd9-87fe-65c35757f4d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/backend/tests/CustomerServiceTest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/ShutterDAO.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ShutterDAO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/tests/EndToEndTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/tests/EndToEndTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,38 +21,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/backend/tests/EndToEndTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+            <state relative-caret-position="555">
+              <caret line="49" column="41" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/server.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/backend/tests/CustomerServiceTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/ShutterDAO.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/shutter.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="78" lean-forward="true" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
+            <state relative-caret-position="495">
+              <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -56,17 +42,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
+            <state relative-caret-position="1125">
+              <caret line="75" column="62" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+            <state relative-caret-position="206">
+              <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -97,7 +83,6 @@
         <option value="$PROJECT_DIR$/src/stores/ReceiptStore.js" />
         <option value="$PROJECT_DIR$/src/actions/CustomerActions.js" />
         <option value="$PROJECT_DIR$/src/components/Clear.js" />
-        <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js" />
         <option value="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerController.js" />
         <option value="$PROJECT_DIR$/src/stores/WorkStore.js" />
         <option value="$PROJECT_DIR$/src/components/WorkerNavigation.js" />
@@ -116,7 +101,6 @@
         <option value="$PROJECT_DIR$/src/dispatcher/ShutterDispatcher.js" />
         <option value="$PROJECT_DIR$/src/components/ManagerStatistic.js" />
         <option value="$PROJECT_DIR$/src/components/ManagerNavigation.js" />
-        <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" />
         <option value="$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js" />
         <option value="$PROJECT_DIR$/src/backend/Worker/ShutterWorkerService.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
@@ -125,11 +109,14 @@
         <option value="$PROJECT_DIR$/src/backend/tests/controllers/app.controller.test.js" />
         <option value="$PROJECT_DIR$/src/backend/tests/asyncFunc.test.js" />
         <option value="$PROJECT_DIR$/src/backend/tests/simple.test.js" />
-        <option value="$PROJECT_DIR$/src/backend/server.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/database/shutter.sh" />
-        <option value="$PROJECT_DIR$/src/backend/tests/EndToEndTest.js" />
         <option value="$PROJECT_DIR$/src/backend/ShutterDAO.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/backend/server.js" />
+        <option value="$PROJECT_DIR$/src/backend/tests/EndToEndTest.js" />
+        <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js" />
+        <option value="$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js" />
+        <option value="$PROJECT_DIR$/src/backend/tests/CustomerServiceTest.js" />
       </list>
     </option>
   </component>
@@ -179,7 +166,14 @@
               <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="Manager" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebTech2-assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebTech2-assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -285,7 +279,7 @@
       <workItem from="1557605636525" duration="22570000" />
       <workItem from="1557684807969" duration="28608000" />
       <workItem from="1557738179174" duration="455000" />
-      <workItem from="1557738947811" duration="1712000" />
+      <workItem from="1557738947811" duration="12975000" />
     </task>
     <task id="LOCAL-00001" summary="Basics, and basic list function added.">
       <created>1556814854441</created>
@@ -518,11 +512,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557738079868</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Some test, and run script">
+      <created>1557740690099</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1557740690099</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191502000" />
+    <option name="totallyTimeSpent" value="202765000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -535,7 +536,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="-2" width="1920" height="1082" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49853802" visible="true" weight="0.14621131" />
       <window_info id="Structure" order="1" sideWeight="0.501462" side_tool="true" weight="0.14087513" />
@@ -615,14 +615,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Some test, and run script" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/service-worker.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/static/css/main.3c1386fe.chunk.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1710" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -827,16 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!block;n#readReadyToReceipt#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -922,43 +904,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#132#409#0" />
-            <element signature="n#!!block;n#generate#0" />
-            <element signature="n#!!block;n#generateItem#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/shutter.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="78" lean-forward="true" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <caret line="14" column="78" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -969,10 +918,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/Manager/ShutterManagerService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!block;n#readReadyToReceipt#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="75" column="62" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/tests/EndToEndTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+        <state relative-caret-position="555">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/Customer/ShutterCustomerService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/combined.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-864" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/tests/CustomerServiceTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
         </state>
       </provider>
     </entry>

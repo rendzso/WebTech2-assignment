@@ -1,13 +1,14 @@
 var express = require('express')
 var router = express.Router()
 var srs = require('./ShutterCustomerService')
+const customerService = new srs();
 
 router.get('/list', async (req, res) => {
     if (req.query.customerID === undefined || req.query.customerID === '') {
         res.status(414).send('CustomerID is missing!');
         return;
     }
-    res.status(200).send(await srs.readAll(req.query.customerID))
+    res.status(200).send(await customerService.readAll(req.query.customerID))
 })
 
 router.get('/listCustomer', async (req, res) => {
@@ -15,7 +16,7 @@ router.get('/listCustomer', async (req, res) => {
         res.status(414).send('CustomerID is missing!');
         return;
     }
-    res.status(200).send(await srs.readCustomerOrders(req.query.customerID))
+    res.status(200).send(await customerService.readCustomerOrders(req.query.customerID))
 })
 
 router.get('/listReceipts', async (req, res) => {
@@ -23,7 +24,7 @@ router.get('/listReceipts', async (req, res) => {
         res.status(414).send('CustomerID is missing!');
         return;
     }
-    res.status(200).send(await srs.readCustomerReceipts(req.query.customerID))
+    res.status(200).send(await customerService.readCustomerReceipts(req.query.customerID))
 })
 
 router.post('/addCustomer', async (req, res) => {
@@ -44,7 +45,7 @@ router.post('/addCustomer', async (req, res) => {
         return;
     }
     try {
-        res.status(200).send(await srs.addCustomer(req.body))
+        res.status(200).send(await customerService.insertCustomer(req.body))
     } catch (err) {
         res.status(500).send(err)
     }
@@ -72,7 +73,7 @@ router.post('/addOrder', async (req, res) => {
         return;
     }
     try {
-        res.status(200).send(await srs.addOrder(req.body))
+        res.status(200).send(await customerService.insertOrder(req.body))
     } catch (err) {
         res.status(500).send(err)
     }
@@ -80,7 +81,7 @@ router.post('/addOrder', async (req, res) => {
 
 router.post('/submitOrder', async (req, res) => {
     try {
-        res.status(200).send(await srs.submitOrder(req.body))
+        res.status(200).send(await customerService.submitOrder(req.body))
     } catch (err) {
         res.status(500).send(err)
     }
@@ -88,7 +89,7 @@ router.post('/submitOrder', async (req, res) => {
 
 router.post('/pay', async (req, res) => {
     try {
-        res.status(200).send(await srs.pay(req.body))
+        res.status(200).send(await customerService.pay(req.body))
     } catch (err) {
         res.status(500).send(err)
     }

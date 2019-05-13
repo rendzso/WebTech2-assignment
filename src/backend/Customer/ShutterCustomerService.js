@@ -1,4 +1,3 @@
-var srs = require('../ShutterDAO')
 const collection = 'Customer'
 var winston = require('winston')
 var logger = winston.createLogger({
@@ -11,13 +10,21 @@ var logger = winston.createLogger({
     ]
 });
 
-async function generate(customerID) {
+function ShutterCustomerService(DAO){
+    if(DAO !== undefined && DAO !== null){
+      this.DAO = DAO;
+    } else {
+        this.DAO = require('../ShutterDAO')
+    }
+}
+
+ShutterCustomerService.prototype.generate = async function (customerID) {
     return new Promise(async resolve => {
         const basic = "order"
         let number = 1
-        const circle = await srs.counter("Orders", {"customerID": customerID})
+        const circle = await this.DAO.counter("Orders", {"customerID": customerID})
         for (let i = 0; i <= circle; i++) {
-            if (await srs.counter("Orders", {"customerID": customerID, "orderID": basic + number}) === 0) {
+            if (await this.DAO.counter("Orders", {"customerID": customerID, "orderID": basic + number}) === 0) {
                 resolve(basic + number)
             } else {
                 number += 1;
@@ -26,9 +33,9 @@ async function generate(customerID) {
     })
 }
 
-async function generateItem(customerID) {
+ShutterCustomerService.prototype.generateItem = async function (customerID) {
     const basic = "item"
-    const all = await srs.readWithData("Orders", {"customerID": customerID, "submitted": "no"})
+    const all = await this.DAO.readWithData("Orders", {"customerID": customerID, "submitted": "no"})
     if (all.length !== 0) {
         const items = all[0]["items"]
         const thenumber = items.length + 1
@@ -40,26 +47,26 @@ async function generateItem(customerID) {
 
 }
 
-async function readAll(customerID) {
-    return (await srs.readWithData(collection, {"customerID": customerID}))
+ShutterCustomerService.prototype.readAll = async function (customerID) {
+    return (await this.DAO.readWithData(collection, {"customerID": customerID}))
 }
 
-async function readCustomerOrders(customerID) {
+ShutterCustomerService.prototype.readCustomerOrders = async function (customerID) {
     const data = {"customerID": customerID}
     logger.info("readCustomerOrders request were found!")
-    return (await srs.readWithData("Orders", data))
+    return (await this.DAO.readWithData("Orders", data))
 }
 
-async function readCustomerReceipts(customerID) {
+ShutterCustomerService.prototype.readCustomerReceipts = async function (customerID) {
     const data = {"customerID": customerID}
     logger.info("readCustomerReceipts request were found!")
-    return (await srs.readWithData("Receipts", data))
+    return (await this.DAO.readWithData("Receipts", data))
 }
 
-async function insertCustomer(customer) {
+ShutterCustomerService.prototype.insertCustomer = async function (customer) {
 
-    if (await srs.counter(collection, {"customerID": customer.customerID}) === 0) {
-        srs.insert(collection, customer)
+    if (await this.DAO.counter(collection, {"customerID": customer.customerID}) === 0) {
+        this.DAO.insert(collection, customer)
         logger.info("insertCustomer request were found, customer added!")
         return 'Customer is added'
     } else {
@@ -69,10 +76,10 @@ async function insertCustomer(customer) {
 
 }
 
-async function insertOrderElement(data) {
-    const secondary = await srs.readWithData("Parts", {"type": data.shutterType})
-    const itemID = await generateItem(data.customerID)
-    srs.updateOne("Orders", {"customerID": data.customerID, "submitted": "no"}, {
+ShutterCustomerService.prototype.insertOrderElement = async function (data) {
+    const secondary = await this.DAO.readWithData("Parts", {"type": data.shutterType})
+    const itemID = await this.generateItem(data.customerID)
+    this.DAO.updateOne("Orders", {"customerID": data.customerID, "submitted": "no"}, {
         $push: {
             "items": {
                 "itemID": itemID,
@@ -89,13 +96,13 @@ async function insertOrderElement(data) {
     })
 }
 
-async function insertOrder(data) {
-    if (await srs.counter(collection, {"customerID": data.customerID}) === 1) {
-        if (await srs.counter("Orders", {"customerID": data.customerID, "submitted": "no"}) === 0) {
-            const secondary = await srs.readWithData("Parts", {"type": data.shutterType})
-            const ID = await generate(data.customerID)
-            const itemID = await generateItem(data.customerID)
-            srs.insert("Orders", {
+ShutterCustomerService.prototype.insertOrder = async function (data) {
+    if (await this.DAO.counter(collection, {"customerID": data.customerID}) === 1) {
+        if (await this.DAO.counter("Orders", {"customerID": data.customerID, "submitted": "no"}) === 0) {
+            const secondary = await this.DAO.readWithData("Parts", {"type": data.shutterType})
+            const ID = await this.generate(data.customerID)
+            const itemID = await this.generateItem(data.customerID)
+            this.DAO.insert("Orders", {
                     "customerID": data.customerID,
                     "orderID": ID,
                     "items": [{
@@ -118,7 +125,7 @@ async function insertOrder(data) {
             logger.info("insertOrder request were found, and new order created, and items added!")
             return 'New order created, and items added!'
         } else {
-            insertOrderElement(data);
+            this.insertOrderElement(data);
             logger.info("insertOrder request were found, and items added to the order!")
             return 'Item added to the order!'
         }
@@ -128,11 +135,11 @@ async function insertOrder(data) {
     }
 }
 
-async function submitOrder(data) {
-    if(await srs.counter("Orders", {"customerID": data.customerID, "orderID": data.orderID, "submitted": "no"}) === 1){
+ShutterCustomerService.prototype.submitOrder = async function (data) {
+    if(await this.DAO.counter("Orders", {"customerID": data.customerID, "orderID": data.orderID, "submitted": "no"}) === 1){
         const where = {"customerID": data.customerID, "orderID": data.orderID}
         const submit = {$set: {"submitted": "submitted"}}
-        srs.updateOne("Orders", where, submit)
+        this.DAO.updateOne("Orders", where, submit)
         logger.info("submitOrder request were found, and order is submitted!")
         return 'Order is submitted!'
     }
@@ -143,12 +150,12 @@ async function submitOrder(data) {
 
 }
 
-async function pay(data) {
+ShutterCustomerService.prototype.pay = async function (data) {
     const where = {"customerID": data.customerID, "orderID": data.orderID, "status": "readyToPay"}
     const pay = {$set: {"payed": "payed"}}
-    if(await srs.counter("Orders", {"customerID": data.customerID, "orderID": data.orderID, "status": "readyToPay"})===1){
-        srs.updateOne("Receipts", {"customerID": data.customerID, "orderID": data.orderID}, {$set: {"payed": "payed"}})
-        srs.updateOne("Orders", where, {$set: {"payed": "payed", "status": "done"}})
+    if(await this.DAO.counter("Orders", {"customerID": data.customerID, "orderID": data.orderID, "status": "readyToPay"})===1){
+        this.DAO.updateOne("Receipts", {"customerID": data.customerID, "orderID": data.orderID}, {$set: {"payed": "payed"}})
+        this.DAO.updateOne("Orders", where, {$set: {"payed": "payed", "status": "done"}})
         logger.info("pay request were found, order is payed!")
         return 'The order is payed!'
     }
@@ -158,12 +165,4 @@ async function pay(data) {
     }
 }
 
-module.exports = {
-    "readAll": readAll,
-    "readCustomerOrders": readCustomerOrders,
-    "addCustomer": insertCustomer,
-    "addOrder": insertOrder,
-    "submitOrder": submitOrder,
-    "pay": pay,
-    "readCustomerReceipts": readCustomerReceipts
-}
+module.exports = ShutterCustomerService;
