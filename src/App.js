@@ -14,13 +14,13 @@ function App() {
                       <a className="nav-link disabled" id="nametag">Shutter builder organization</a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" onClick={()=>{CustomerActions.showNavigation()}}>Customer</a>
+                      <a className="nav-link" id="navbutton" onClick={()=>{CustomerActions.showNavigation()}}>Customer</a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" onClick={()=>{WorkerActions.showNavigation()}}>Worker</a>
+                      <a className="nav-link" id="navbutton" onClick={()=>{WorkerActions.showNavigation()}}>Worker</a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" onClick={()=>{ManagerActions.showNavigation()}}>Manager</a>
+                      <a className="nav-link" id="navbutton" onClick={()=>{ManagerActions.showNavigation()}}>Manager</a>
                   </li>
               </ul>
           </nav>
