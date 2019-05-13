@@ -11,7 +11,6 @@ function read(collection, data) {
         const client = new MongoClient(url);
         await client.connect((err) => {
             assert.equal(err, null);
-            console.log('connected to db');
             var db = client.db(dbName);
             resolve(db.collection(collection).find(data).toArray());
             client.close();
@@ -24,7 +23,6 @@ function counter(collection, data) {
         const client = new MongoClient(url);
         await client.connect((err) => {
             assert.equal(err, null);
-            console.log('connected to db');
             var db = client.db(dbName);
             resolve(db.collection(collection).find(data).count());
             client.close();
@@ -40,7 +38,6 @@ async function insert(collection, data){
     const client = new MongoClient(url);
     await client.connect((err, r) => {
         assert.equal(err, null);
-        console.log('connected to db');
         var db = client.db(dbName);
         db.collection(collection).insertOne(data);
         client.close();
@@ -51,7 +48,6 @@ async function updateOne(collection, where, what){
     const client = new MongoClient(url);
     await client.connect((err) => {
         assert.equal(err, null);
-        console.log('connected to db');
         var db = client.db(dbName);
         db.collection(collection).updateOne(where, what);
         client.close();
