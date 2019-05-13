@@ -1,4 +1,3 @@
-var srs = require('../ShutterDAO')
 const collection = 'Orders'
 var winston = require('winston')
 var logger = winston.createLogger({
@@ -11,8 +10,16 @@ var logger = winston.createLogger({
     ]
 });
 
-async function readOrders(worker, status) {
-    const all = await srs.readAll(collection, {"submitted": "submitted"})
+function ShutterWorkerService(DAO){
+    if(DAO !== undefined && DAO !== null){
+        this.DAO = DAO;
+    } else {
+        this.DAO = require('../ShutterDAO')
+    }
+}
+
+ShutterWorkerService.prototype.readOrders = async function (worker, status) {
+    const all = await this.DAO.readAll(collection, {"submitted": "submitted"})
     if (all.length !== 0) {
         let result = []
         for (let entity of all) {
@@ -33,8 +40,8 @@ async function readOrders(worker, status) {
     }
 }
 
-async function checkEverything(customerID, orderID) {
-    const data = await srs.readWithData(collection, {"customerID": customerID, "orderID": orderID})
+ShutterWorkerService.prototype.checkEverything = async function (customerID, orderID) {
+    const data = await this.DAO.readWithData(collection, {"customerID": customerID, "orderID": orderID})
     let all = 0
     let ready = 0
     console.log(data)
@@ -48,17 +55,17 @@ async function checkEverything(customerID, orderID) {
     console.log("all: " + all)
     console.log("ready: " + ready)
     if (all === ready) {
-        srs.updateOne(collection, {"customerID": customerID, "orderID": orderID}, {$set: {"status": "organize"}})
+        this.DAO.updateOne(collection, {"customerID": customerID, "orderID": orderID}, {$set: {"status": "organize"}})
         return 1
     } else {
         return 0
     }
 }
 
-async function selectOrder(data) {
+ShutterWorkerService.prototype.selectOrder = async function (data) {
     const where = {"customerID": data.customerID, "orderID": data.orderID, "items.itemID": data.itemID}
-    if (await srs.counter(collection, where) === 1) {
-        srs.updateOne(collection, where, {$set: {"items.$.worker": data.worker, "items.$.shutterStatus": "inProgress"}})
+    if (await this.DAO.counter(collection, where) === 1) {
+        this.DAO.updateOne(collection, where, {$set: {"items.$.worker": data.worker, "items.$.shutterStatus": "inProgress"}})
         logger.info("selectOrder request were found, item selected!")
         return 'Item selected!'
     } else {
@@ -69,11 +76,11 @@ async function selectOrder(data) {
 
 }
 
-async function successOrder(data) {
+ShutterWorkerService.prototype.successOrder = async function (data) {
     const where = {"customerID": data.customerID, "orderID": data.orderID, "items.itemID": data.itemID}
-    if (await srs.counter(collection, where) === 1) {
-    await srs.updateOne(collection, where, {$set: {"items.$.shutterStatus": "success"}})
-    if(await checkEverything(data.customerID, data.orderID)===1){
+    if (await this.DAO.counter(collection, where) === 1) {
+    await this.DAO.updateOne(collection, where, {$set: {"items.$.shutterStatus": "success"}})
+    if(await this.checkEverything(data.customerID, data.orderID)===1){
         logger.info("successOrder request were found, the whole order is ready!")
         return 'The whole order is ready for organize!'
     } else {
@@ -86,8 +93,4 @@ async function successOrder(data) {
     }
 }
 
-module.exports = {
-    "readReady": readOrders,
-    "selectOrder": selectOrder,
-    "successOrder": successOrder
-}
+module.exports = ShutterWorkerService

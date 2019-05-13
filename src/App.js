@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './App.css';
 import CustomerActions from "./actions/CustomerActions"
 import WorkerActions from "./actions/WorkerActions";
 import ManagerActions from "./actions/ManagerActions";

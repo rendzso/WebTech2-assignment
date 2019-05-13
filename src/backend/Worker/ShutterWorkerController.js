@@ -1,9 +1,10 @@
 var express = require('express')
 var router = express.Router()
 var srs = require('./ShutterWorkerService')
+const workerService = new srs();
 
 router.get('/list', async (req, res) => {
-    res.status(200).send(await srs.readReady("none", "success"))
+    res.status(200).send(await workerService.readOrders("none", "success"))
 })
 
 router.get('/listOwn', async (req, res) => {
@@ -11,7 +12,7 @@ router.get('/listOwn', async (req, res) => {
         res.status(414).send('Worker ID missing!');
         return;
     }
-    res.status(200).send(await srs.readReady(req.query.worker, "placeholder"))
+    res.status(200).send(await workerService.readOrders(req.query.worker, "placeholder"))
 })
 
 router.post('/select', async (req, res) => {
@@ -20,7 +21,7 @@ router.post('/select', async (req, res) => {
         return;
     }
     try {
-        res.status(200).send(await srs.selectOrder(req.body))
+        res.status(200).send(await workerService.selectOrder(req.body))
     } catch (err) {
         res.status(500).send(err)
     }
@@ -32,7 +33,7 @@ router.post('/success', async (req, res) => {
         return;
     }
     try {
-        res.status(200).send(await srs.successOrder(req.body))
+        res.status(200).send(await workerService.successOrder(req.body))
     } catch (err) {
         res.status(500).send(err)
     }

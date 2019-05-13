@@ -1,4 +1,3 @@
-var srs = require('../ShutterDAO')
 const collection = 'Orders'
 const moment =require('moment')
 var winston = require('winston')
@@ -12,25 +11,33 @@ var logger = winston.createLogger({
     ]
 });
 
-async function readAll() {
+function ShutterManagerService(DAO){
+    if(DAO !== undefined && DAO !== null){
+        this.DAO = DAO;
+    } else {
+        this.DAO = require('../ShutterDAO')
+    }
+}
+
+ShutterManagerService.prototype.readAll = async function () {
     logger.info("readAll request were found!")
-    return (await srs.readAll(collection))
+    return (await this.DAO.readAll(collection))
 }
 
-async function readReadyToReceipt() {
+ShutterManagerService.prototype.readReadyToReceipt = async function () {
     logger.info("readReadyToReceipt request were found!")
-    return (await srs.readWithData(collection, {"status": "creatingReceipt"}))
+    return (await this.DAO.readWithData(collection, {"status": "creatingReceipt"}))
 }
 
-async function readReadyToOrganize() {
+ShutterManagerService.prototype.readReadyToOrganize = async function () {
     logger.info("readReadyToOrganize request were found!")
-    return (await srs.readWithData(collection, {"status": "organize"}))
+    return (await this.DAO.readWithData(collection, {"status": "organize"}))
 }
 
-async function organizeInstallation(data) {
+ShutterManagerService.prototype.organizeInstallation = async function (data) {
 
-    if (await srs.counter(collection, {"customerID": data.customerID, "orderID": data.orderID, "status" : "organize"}) === 1) {
-        srs.updateOne(collection, {
+    if (await this.DAO.counter(collection, {"customerID": data.customerID, "orderID": data.orderID, "status" : "organize"}) === 1) {
+        this.DAO.updateOne(collection, {
             "customerID": data.customerID,
             "orderID": data.orderID
         }, {$set: {"deliveryTime": data.date, "status": "creatingReceipt"}})
@@ -44,8 +51,8 @@ async function organizeInstallation(data) {
 
 }
 
-async function createReceipt(data) {
-    let order = await srs.readWithData(collection, {
+ShutterManagerService.prototype.createReceipt = async function (data) {
+    let order = await this.DAO.readWithData(collection, {
         "customerID": data.customerID,
         "orderID": data.orderID,
         "status": "creatingReceipt"
@@ -57,7 +64,7 @@ async function createReceipt(data) {
             all += entity["shutterPrice"]
         }
 
-        const customer = await srs.readWithData("Customer", {
+        const customer = await this.DAO.readWithData("Customer", {
                 "customerID": data.customerID
             }
         )
@@ -73,7 +80,7 @@ async function createReceipt(data) {
         delete order[0].status;
         delete order[0].payed;
 
-        srs.insert("Receipts", {
+        this.DAO.insert("Receipts", {
             "customerID": data.customerID,
             "name" : customer[0].name,
             "phone":customer[0].phone,
@@ -85,7 +92,7 @@ async function createReceipt(data) {
             "order": order[0]
         })
 
-        srs.updateOne(collection, {
+        this.DAO.updateOne(collection, {
             "customerID": data.customerID,
             "orderID": data.orderID
         }, {$set: {"status": "readyToPay"}})
@@ -98,8 +105,8 @@ async function createReceipt(data) {
     }
 }
 
-async function getCustomerWithMoney(){
-    let data =await srs.readAll("Receipts")
+ShutterManagerService.prototype.getCustomerWithMoney = async function (){
+    let data =await this.DAO.readAll("Receipts")
     let customerlist = []
     let statistic = []
     for(let receipt of data){
@@ -121,11 +128,4 @@ async function getCustomerWithMoney(){
     return statistic
 }
 
-module.exports = {
-    "listAll": readAll,
-    "listReadyToReceipt": readReadyToReceipt,
-    "listReadyToOrganize": readReadyToOrganize,
-    "setDeliveryTime": organizeInstallation,
-    "createReceipt": createReceipt,
-    "statistic": getCustomerWithMoney
-}
+module.exports = ShutterManagerService
