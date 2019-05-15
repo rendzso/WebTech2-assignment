@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var srs = require('./ShutterManagerService')
+var srs = require('../service/ShutterManagerService')
 const managerService = new srs();
 
 router.get('/list', async (req, res) => {

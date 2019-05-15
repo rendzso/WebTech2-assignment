@@ -4,7 +4,7 @@ const assert = require('assert');
 const sinon = require('sinon');
 const mocha = require('mocha');
 
-const service = require(`../Customer/ShutterCustomerService`);
+const service = require(`./../service/ShutterCustomerService`);
 
 let dao = {
 

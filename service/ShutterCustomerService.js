@@ -14,7 +14,7 @@ function ShutterCustomerService(DAO){
     if(DAO !== undefined && DAO !== null){
       this.DAO = DAO;
     } else {
-        this.DAO = require('../ShutterDAO')
+        this.DAO = require('../dao/ShutterDAO')
     }
 }
 

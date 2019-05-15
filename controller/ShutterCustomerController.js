@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var srs = require('./ShutterCustomerService')
+var srs = require('../service/ShutterCustomerService')
 const customerService = new srs();
 
 router.get('/list', async (req, res) => {
