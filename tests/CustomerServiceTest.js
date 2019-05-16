@@ -8,7 +8,7 @@ const service = require(`./../service/ShutterCustomerService`);
 
 let dao = {
 
-    readWithData: async function(placeholder, customerID){
+    readAll: async function(customerID){
       return(customerID);
     }
 
@@ -20,12 +20,13 @@ const customerService = new service(dao);
 describe('Customer Service test', function () {
     it('without customerID should return undefined', async function () {
         const result = await customerService.readAll();
-        assert.strictEqual(result.customerID, undefined);
+        assert.strictEqual(result, undefined);
 
     })
     it('with customerID should return with the id', async function () {
         const result = await customerService.readAll("domcsa");
-        assert.strictEqual(result.customerID, "domcsa");
+        console.log(result)
+        assert.strictEqual(result, "domcsa");
 
     })
     it('readall called once', async function () {
