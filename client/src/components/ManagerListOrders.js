@@ -1,6 +1,5 @@
 import React from 'react';
 import WorkStore from "../stores/WorkStore";
-import WorkerActions from "../actions/WorkerActions"
 import ManagerActions from "../actions/ManagerActions";
 
 class ManagerListOrders extends React.Component {
